@@ -1,7 +1,9 @@
 const input_youtube_url = document.getElementById("youtube-url");
 const btn_download = document.getElementById("btn-download");
+const btn_link = document.getElementById("btn-auto-link");
+
 function check_youtube_link(url) {
-  if (url.match(/^(http(s)?:\/\/)?((w){3}.)?youtu(be|.be)?(\.com)?\/.+/gm)) {
+  if (url.match("https://www.youtube.com/")) {
     input_youtube_url.classList.remove("uk-form-danger");
     input_youtube_url.classList.add("uk-form-success");
     btn_download.disabled = false;
@@ -15,7 +17,21 @@ function check_youtube_link(url) {
   }
 }
 btn_download.onclick = e => {
-  window.open("file://C:/Windows/notepad.exe");
+  // window.open("file://C:/Windows/notepad.exe");
+  chrome.extension
+    .getBackgroundPage()
+    .port.postMessage(input_youtube_url.value);
+  input_youtube_url.value = "";
+  check_youtube_link("");
+};
+
+btn_link.onclick = e => {
+  chrome.tabs.getSelected(tab => {
+    console.log(tab);
+    const url = new URL(tab.url);
+    input_youtube_url.value = url.href;
+    check_youtube_link(url.href);
+  });
 };
 
 function getYoutubeData(url) {

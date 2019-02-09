@@ -8,7 +8,7 @@ import threading
 import nativemessaging
 
 downloaddata = []
-API_KEY = "AIzaSyAasuN7ChDi_8Hemxv1Dd9-troI6-Fe-7M"
+API_KEY = "AIzaSyAY4FX9BLQocw3a9X6NF3qL158FhFsWTcU"
 
 
 class Signal(QObject):
@@ -29,17 +29,42 @@ def th():
         ) & ~QtCore.Qt.WindowMinimized | QtCore.Qt.WindowActive)
         MainWindow.activateWindow()
 
+# def get_real_resl(idx, exttype):
+# 	if exttype == VIDEO:
+# 		return video_resls_map[idx]
+# 	else:
+# 		return audio_resls_map[idx]
 
+# def get_exttype(idx):
+# 	if combo_1_items[idx] in video_formats:
+# 		return VIDEO
+# 	else:
+# 		return AUDIO
 if __name__ == "__main__":
+    # VIDEO = 1
+    # AUDIO = 0
+
+    # video_formats = ['MP4 - 동영상','FLV - 동영상','MKV - 동영상','3GP - 동영상']
+    # audio_formats = ['MP3 - 오디오','M4A - 오디오', 'OGG - 오디오']
+
+    # combo_1_items = video_formats+audio_formats
+
+    # video_resls = ['원본','1080p','720p','480p','360p','240p']
+    # video_resls_map = [None,'1080','720','480','360','240']
+    # audio_resls = ['원본','320kbps','256kbps','128kbps']
+    # audio_resls_map = [None,'320','256','128']
+
+    # combo_2_items = video_resls
 
     list1 = 0
 
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    yt = youtube(API_KEY)
+    yt = youtube(API_KEY,"C:\\Users\\YASUO\\Videos\\")
     btn = Btn(MainWindow)
     MainWindow.show()
     ui = Ui_MainWindow()
+    # ui.combo_link_format.setaddItems()
     ui.setupUi(MainWindow)
     list1 = Kit(ui)
     signal = Signal()

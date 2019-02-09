@@ -21,7 +21,6 @@ class youtube():
     WATCH_AND_PLAYLIST = 3
     CHANNEL = 4
 
-    t=None
     USER = 5
     OTHERS = 6
 
@@ -67,11 +66,9 @@ class youtube():
 
         if flag is True:
             #쓰레드시작
-            if self.t is not None:
-                self.t.cancel()
-            self.t = threading.Thread(target=self.repeater,daemon=True)
+            t = threading.Thread(target=self.repeater,daemon=True)
             
-            self.t.start()
+            t.start()
             
             
     def repeater(self):
@@ -248,11 +245,11 @@ class youtube():
                 ext = s.extension
                 if ext == ext_filter and s.resolution == resl_filter:
                     print(s.url)
-                    s.download(filepath=self.get_possible_fn(self.DOWNLOAD_PATH+ytube_video.title,ext),callback=cb)
+                    s.download(filepath=self.get_possible_fn(self.DOWNLOAD_PATH+ytube_video.title,ext),quiet=True,callback=cb)
                     return
 
         ytube_best = ytube_video.getbest(preftype=ext_filter)
-        ytube_best.download(filepath=self.get_possible_fn(self.DOWNLOAD_PATH+ytube_best.title,ytube_best.extension),callback=cb)
+        ytube_best.download(filepath=self.get_possible_fn(self.DOWNLOAD_PATH+ytube_best.title,ytube_best.extension),quiet=True,callback=cb)
         return
 
     def getVideoId(self, url):
@@ -278,7 +275,7 @@ class youtube():
     
     def round_robin_download(self,video_list,ext, resl=None, cb=None,threadCount = 4):
         pool = Pool(threadCount)
-        tuple_list = [{"url":video['url'],"ext":ext,"resl":resl,"cb":cb} for video in video_list]
+        tuple_list = [{"url":video,"ext":ext,"resl":resl,"cb":cb} for video in video_list]
         print(tuple_list)
         pool.map(self.download_video,tuple_list)
         pool.close()
@@ -381,12 +378,9 @@ class youtube():
 if __name__ == '__main__':
     y = youtube("AIzaSyCF2cbRoztUBws-HQsyF7I-x0OVM7KbhP4","C:\\Users\\YASUO\\Videos\\")
     #pp(y.getInfo(pyperclip.paste()))
-<<<<<<< HEAD
+
     print(y.getInfo(pyperclip.paste(),"m4a", "128k"))
 
-=======
-    
->>>>>>> 157f691e3cd23d00bd9273e2208220db09cccf25
     #y.zsdf()
     #y.download_video({"url":"https://www.youtube.com/watch?v=1eEcL8XjogE","ext":"mp4","resl":"1280x720"})
     print(y.get_channel_Info("mnetMPD",True))

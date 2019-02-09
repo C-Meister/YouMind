@@ -10,7 +10,7 @@ class Kit(QtWidgets.QMainWindow):
     def __init__(self,ui):
         super().__init__()
         self.ui = ui   
-
+        self.urlbuf= []
     def clear_download_list(self):
         self.clearLayout(self.ui.verticalLayout_7)
 
@@ -82,9 +82,9 @@ class Kit(QtWidgets.QMainWindow):
             self.ui.linked_id[i].setFont(font)
             self.ui.linked_id[i].setObjectName("linked_id")
             self.ui.linked_id[i].setText(downloaddata[i]['url'])
+            self.urlbuf.append(downloaddata[i]['url'])
             self.ui.verticalLayout_7.addWidget(self.ui.linked_p[i])
-<<<<<<< HEAD
-=======
+
 
 
     def add_now_list(self,downloaddata):
@@ -182,4 +182,3 @@ class Kit(QtWidgets.QMainWindow):
 
         self.ui.now_bar[1].setValue(50)
     
->>>>>>> 157f691e3cd23d00bd9273e2208220db09cccf25

@@ -6,9 +6,8 @@ from btn_class import *
 from youtube import *
 
 
-
 downloaddata = []
-API_KEY = "AIzaSyCF2cbRoztUBws-HQsyF7I-x0OVM7KbhP4"
+API_KEY = "AIzaSyAasuN7ChDi_8Hemxv1Dd9-troI6-Fe-7M"
 
 
 
@@ -19,7 +18,7 @@ if __name__ == "__main__":
 
 	app = QtWidgets.QApplication(sys.argv)
 	MainWindow = QtWidgets.QMainWindow()
-	yt = youtube(API_KEY)
+	yt = youtube(API_KEY,"C:\\Users\\ShinSH\\Desktop\\test\\")
 	btn = Btn(MainWindow)
 	MainWindow.show()
 

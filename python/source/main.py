@@ -8,25 +8,30 @@ from youtube import *
 
 
 downloaddata = []
-API_KEY = "AIzaSyDFC_QxH093_VthlLPWvC2BmzPP0hhbX9U"
+API_KEY = "AIzaSyCb0j6QKRcOvfqpeta1slWJZCrj6xIkD5Y"
 
 
 
 if __name__ == "__main__":
 
-app = QtWidgets.QApplication(sys.argv)
-MainWindow = QtWidgets.QMainWindow()
-btn = Btn(MainWindow)
-MainWindow.show()
+	list1 = 0
+
+	app = QtWidgets.QApplication(sys.argv)
+	MainWindow = QtWidgets.QMainWindow()
+	yt = youtube(API_KEY)
+	btn = Btn(MainWindow)
+	MainWindow.show()
 
 	ui = Ui_MainWindow()
 	ui.setupUi(MainWindow)
 
-	yt = youtube(API_KEY)
+	
 
 	
 
 	list1 = Kit(ui)
-	list1.add_download_list(yt.get_videos('https://www.youtube.com/channel/UCMRdlwfhLECvQw0FN0s_csg'))
+	#list1.add_download_list(yt.get_videos('https://www.youtube.com/channel/UCMRdlwfhLECvQw0FN0s_csg'))
+	btn.btn_add(list1, yt)
+
 
 	app.exec_()

@@ -4,6 +4,7 @@ import pafy
 import urllib
 import pyperclip
 import time
+import nativemessaging
 from pprint import pprint as pp
 import simplejson as json
 from time import sleep
@@ -21,14 +22,16 @@ class youtube():
     USER = 5
     OTHERS = 6
 
-    API_KEY =""
+    API_KEY = ""
     DOWNLOAD_PATH = ""
 
     def __init__(self, key, path=None):
         self.API_KEY = key
         self.DOWNLOAD_PATH = path
-    def change_path(self,path):
+
+    def change_path(self, path):
         self.DOWNLOAD_PATH = path
+
     def get_urltype(self, url):
         splited = url.split('www.youtube.com/')
         if len(splited) != 2:
@@ -142,12 +145,13 @@ class youtube():
                 break
             time.sleep(0.1)
         return video_links
-    def get_possible_fn(self,title, ext):
-        fn= title+"."+ext
+
+    def get_possible_fn(self, title, ext):
+        fn = title+"."+ext
         idx = 2
         while Path(fn).exists():
-            fn= title +" ({}).".format(idx)+ext
-            idx+=1
+            fn = title + " ({}).".format(idx)+ext
+            idx += 1
         return fn
 
     def download_video(self, url, ext_filter=None, resl_filter=None, cb=None):
@@ -158,11 +162,13 @@ class youtube():
             for s in ytube_video.streams:
                 ext = s.extension
                 if ext == ext_filter and s.resolution == resl_filter:
-                    s.download(filepath=self.get_possible_fn(self.DOWNLOAD_PATH+ytube_video.title,ext),callback=cb)
+                    s.download(filepath=self.get_possible_fn(
+                        self.DOWNLOAD_PATH+ytube_video.title, ext), callback=cb)
                     return
 
             ytube_best = ytube_video.getbest(preftype=ext_filter)
-            ytube_best.download(filepath=self.get_possible_fn(self.DOWNLOAD_PATH+ytube_best.title,ytube_best.extension),callback=cb)
+            ytube_best.download(filepath=self.get_possible_fn(
+                self.DOWNLOAD_PATH+ytube_best.title, ytube_best.extension), callback=cb)
             return
         return
 
@@ -186,12 +192,8 @@ class youtube():
                     }]
         return None
 
-
-            
-
-    def round_robin_download(self,url_list,threadCount = 4):
+    def round_robin_download(self, url_list, threadCount=4):
         pass
-
 
     def getInfos(self, url, ext, resl):
 
@@ -218,12 +220,19 @@ class youtube():
         resp = json.load(inp)
         img_url = resp['items'][0]['snippet']['thumbnails']['default']['url']
         return img_url
-    
 
 
-y = youtube("AIzaSyCZsObQQAM1CWOzhjM6Ezevhr3mq9ueoag","C:\\Users\\YASUO\\Videos\\")
-#pp(y.getInfo(pyperclip.paste()))
-#print(y.getInfos(pyperclip.paste(),"mp4","1280x720"))
-#print(y.get_videos_in_channel("bjummma",True))
-y.download_video("https://www.youtube.com/watch?v=NZvqWmBJLP8",ext_filter="mp4",resl_filter="1280x720")
-#print(y.get_channel_picture_url("mnetMPD",True))
+def native_message():
+    while True:
+        message = nativemessaging.get_message()
+        print(message)
+
+
+y = youtube("AIzaSyCZsObQQAM1CWOzhjM6Ezevhr3mq9ueoag",
+            "C:\\Users\\YASUO\\Videos\\")
+native_message()
+# pp(y.getInfo(pyperclip.paste()))
+# print(y.getInfos(pyperclip.paste(), "mp4", "1280x720"))
+# print(y.get_videos_in_channel("bjummma",True))
+# y.download_video("https://www.youtube.com/watch?v=NZvqWmBJLP8",ext_filter="mp4",resl_filter="1280x720")
+# print(y.get_channel_picture_url("mnetMPD",True))

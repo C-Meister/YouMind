@@ -267,6 +267,75 @@ class youtube():
 
         # return InfoList
 
+    def getInfo(self, url, ext_filter=None, resl_filter=None):
+        print(url)
+
+        ytube_video = pafy.new(url)
+        ytube_thumbnail = ytube_video.thumb
+
+        ytube_exts = {}
+        ytube_info = {}
+
+        if ext_filter is None and resl_filter is None:
+
+            for s in ytube_video.streams:
+
+                ext = s.extension # 확장자 
+                ytube_ext_info = [s.url, s.get_filesize()] # url과 파일 사이즈
+                ytube_ext_info_dic = {s.resolution : ytube_ext_info}
+
+
+                if not ext in ytube_exts:
+
+                    ext_list = []
+                    ytube_exts[ext] = ext_list
+
+                ytube_exts[ext].append(ytube_ext_info_dic)
+
+            ytube_info = {
+            "thumbnail" : ytube_thumbnail,
+            "title" : ytube_video.title,
+            "download" : ytube_exts
+        }
+
+        elif ext_filter is not None and resl_filter is not None:
+
+            EXIST = 0
+
+            for s in ytube_video.streams:
+
+                ext = s.extension
+
+                if ext == ext_filter and s.resolution == resl_filter:
+
+                    ytube_ext_info = [s.url, s.get_filesize()] # url과 파일 사이즈
+                    ytube_ext_info_dic = {s.resolution : ytube_ext_info}
+
+                    ytube_info = {
+                    "thumbnail" : ytube_thumbnail,
+                    "title" : ytube_video.title,
+                    "download" : ytube_ext_info_dic
+                    }
+                    EXIST = 1
+
+            if EXIST == 0:
+
+                ytube_best = ytube_video.getbest(preftype=ext_filter)
+
+                ytube_ext_info = [ytube_best.url, ytube_best.get_filesize()]
+                ytube_ext_info_dic = {ytube_best.resolution : ytube_ext_info}
+
+                ytube_info = {
+                    "thumbnail" : ytube_thumbnail,
+                    "title" : ytube_video.title,
+                    "download" : ytube_ext_info_dic
+                    }
+
+
+        return ytube_info
+                    
+
+
     def get_channel_picture_url(self, id, forUsername=False):
         url = "https://www.googleapis.com/youtube/v3/channels?part=snippet&fields=items%2Fsnippet%2Fthumbnails%2Fdefault&key={}".format(
             self.API_KEY)

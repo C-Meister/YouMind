@@ -39,11 +39,10 @@ class youtube():
         f.close()
         f=open("lastuploaded.txt","r")
         self.LAST_UPLOAD_URL = f.readline()
-        print("self.last",self.LAST_UPLOAD_URL)
         f.close()
-        self.subscribe(url,True)
+        self.subscribe(url)
 
-    def subscribe(self, url,fir=False):
+    def subscribe(self, url):
         urltype= self.get_urltype(url)
         flag = False
         if urltype == self.CHANNEL:
@@ -52,8 +51,7 @@ class youtube():
             self.SUBSCRIBED_forUser = False
             if self.SUBSCRIBED_ID != id:
                 #새로운 구독
-                if fir is False:
-                    self.LAST_UPLOAD_URL =""
+                self.LAST_UPLOAD_URL =""
                 self.SUBSCRIBED_ID = id
                 flag= True
 
@@ -62,8 +60,7 @@ class youtube():
             self.SUBSCRIBED_forUser = True    
             if self.SUBSCRIBED_ID != id:
                 #새로운 구독
-                if fir is False:
-                    self.LAST_UPLOAD_URL =""
+                self.LAST_UPLOAD_URL =""
                 self.SUBSCRIBED_ID = id
                 flag=True
 
@@ -153,7 +150,6 @@ class youtube():
         elif self.LAST_UPLOAD_URL != current_url:
             print("UPDATED :", current_url)
             self.LAST_UPLOAD_URL = base_video_url+resp['items'][0]['id']['videoId']
-            self.download_video({"url":self.LAST_UPLOAD_URL,"ext":"mp4","resl":"1920x1080","idx":0})
             f=open("lastuploaded.txt","w")
             f.write(self.LAST_UPLOAD_URL)
             f.close()
@@ -254,7 +250,8 @@ class youtube():
                     print(s.url)
                     s.download(filepath=self.get_possible_fn(self.DOWNLOAD_PATH+ytube_video.title,ext),quiet=True,callback=lambda total, dtotal, ratio, speed, left_seconds : self.barUpdate(idx,int(ratio*100)))
                     return
-        ytube_best = ytube_video.getbest(preftype=ext_filter)
+        ytube_best = ytube_video.getbest()
+        print("254:",ytube_best)
         ytube_best.download(filepath=self.get_possible_fn(self.DOWNLOAD_PATH+ytube_best.title,ytube_best.extension),quiet=True,callback=lambda total,dtotal,ratio,rate,eta: self.barUpdate(idx,int(ratio*100)))
         return
     def barUpdate(self,idx,per):
@@ -309,6 +306,7 @@ class youtube():
         self.bar_list = []
         pool = Pool(threadCount)
         tuple_list = [{"url":video,"ext":ext,"resl":resl,"cb":cb,"idx":idx} for video,idx in zip(video_list,range(len(video_list)))]
+        print(tuple_list)
         pool.map(self.download_video,tuple_list)
         self.flag = False
         pool.close()

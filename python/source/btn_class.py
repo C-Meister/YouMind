@@ -5,13 +5,26 @@ import urllib.request
 class Btn(QtWidgets.QMainWindow):
 
     def btn_link_event(self):
-        # message = "<font size = 5 color = gray > Rich Html Title </font> <br/><br/>The clickable link <a href='http://www.google.com'>Google.</a> The lower and upper case text."
-        # messagebox = QtGui.QMessageBox(QtGui.QMessageBox.Warning, "title", message, parent=self)
-        # messagebox.addButton("ResetRole Left Most", QtGui.QMessageBox.ResetRole)
-        # messagebox.addButton("ApplyRole Left", QtGui.QMessageBox.ApplyRole)
-        # messagebox.addButton("RejectRole Right", QtGui.QMessageBox.RejectRole)
-        # exe = messagebox.exec_()
-        # print('exe: %s  clickedButton: %s'%(exe, messagebox.clickedButton()))
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        message = "<font size = 5 color = gray > Rich Html Title </font> <br/><br/>The clickable link <a href='http://www.google.com'>Google.</a> The lower and upper case text."
+        messagebox = QtWidgets.QMessageBox(QtWidgets.QMessageBox.Warning, "title", message, parent=self)
+        messagebox.addButton("1", QtWidgets.QMessageBox.ResetRole)
+        messagebox.addButton("2", QtWidgets.QMessageBox.ApplyRole)
+        messagebox.addButton("3", QtWidgets.QMessageBox.RejectRole)
+        exe = messagebox.exec_()
+        print('exe: %s  clickedButton: %s'%(exe, messagebox.clickedButton()))
         print('test')
     
     def btn_sub_event(self):

@@ -63,15 +63,28 @@ class youtube():
 
         # except:
         #     return None
+<< << << < HEAD
 
     def get_videos_in_channel(self, channel_id, print_title=False):
+== == == =
+
+    def get_videos_in_channel(self, channel_id, forUsername=False, print_title=False):
+>>>>>> > 449fe17031be9da759c7e88954ed36cbcb8604a1
 
         base_video_url = 'https://www.youtube.com/watch?v='
         base_search_url = 'https://www.googleapis.com/youtube/v3/search?'
 
+<< << << < HEAD
         first_url = base_search_url + \
             'key={}&channelId={}&part=snippet,id&order=date&maxResults=25'.format(
                 self.API_KEY, channel_id)
+== == == =
+        first_url = base_search_url + \
+            'key={}&part=snippet,id&order=date&maxResults=25'.format(
+                self.API_KEY)
+        first_url += '&channelId=' + \
+            channel_id if forUsername is False else '&forUsername=' + channel_id
+>>>>>> > 449fe17031be9da759c7e88954ed36cbcb8604a1
 
         video_links = []
         url = first_url
@@ -84,7 +97,11 @@ class youtube():
                 if i['id']['kind'] == "youtube#video":
                     if i['snippet']['title'] != "Private video" and i['snippet']["liveBroadcastContent"] == 'none':
                         video_links.append(base_video_url + i['id']['videoId'])
+<< << << < HEAD
 
+== == == =
+
+>>>>>> > 449fe17031be9da759c7e88954ed36cbcb8604a1
             try:
                 next_page_token = resp['nextPageToken']
                 url = first_url + '&pageToken={}'.format(next_page_token)
@@ -234,7 +251,18 @@ class youtube():
             time.sleep(0.01)
         # return InfoList
 
+        return InfoList
+    def get_channel_picture_url(self, id, forUsername=False):
+        url ="https://www.googleapis.com/youtube/v3/channels?part=snippet&fields=items%2Fsnippet%2Fthumbnails%2Fdefault&key={}".format(self.API_KEY)
+        url += "&forUsername="+ id if forUsername is True else "&id="+id
+        inp = urllib.request.urlopen(url)
+        resp = json.load(inp)
+        img_url= resp['items'][0]['snippet']['thumbnails']['default']['url']
+        return img_url
 
-y = youtube("AIzaSyCmksLiLUv1yrxdnF1bPHt0x_O8wxwlGoE")
+y = youtube("AIzaSyCQ3RG5_ngnwRtP8cDfGDOdwhwHHE1Qcco")
+
 # pp(y.getInfo(pyperclip.paste()))
-print(y.getInfos(pyperclip.paste(), "mp4", "1280x720"))
+# print(y.getInfos(pyperclip.paste(),"mp4","1280x720"))
+# print(y.get_videos_in_channel("bjummma",True))
+# print(y.get_channel_picture_url("mnetMPD",True))

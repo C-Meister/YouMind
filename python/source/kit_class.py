@@ -11,14 +11,26 @@ class Kit(QtWidgets.QMainWindow):
         super().__init__()
         self.ui = ui   
 
+    def clear_download_list(self):
+        self.clearLayout(self.ui.verticalLayout_7)
 
+    def clear_now_list(self):
+        self.clearLayout(self.ui.verticalLayout_6)
+
+    def clearLayout(self,layout):
+        while layout.count():
+            print(layout.count())
+            child = layout.takeAt(0)
+            if child.widget():
+                child.widget().deleteLater()
 
 
 
     def add_download_list(self,downloaddata): #함수명 알아서 바꾸셈
         
+
         length = len(downloaddata)
-        
+
         self.ui.linked_p = [QtWidgets.QWidget(self.ui.layout_link_data) for i in range(length)]
 
 
@@ -74,10 +86,12 @@ class Kit(QtWidgets.QMainWindow):
 
 
     def add_now_list(self,downloaddata):
+
+
         length = len(downloaddata)
         self.ui.now_panel = [QtWidgets.QWidget(self.ui.now_download_layout) for i in range(length)]
     
-
+        
         for i in range(length):
             self.ui.now_panel[i].setMinimumSize(QtCore.QSize(0, 120))
             self.ui.now_panel[i].setMaximumSize(QtCore.QSize(16777215, 120))
@@ -155,7 +169,7 @@ class Kit(QtWidgets.QMainWindow):
 
             ###
             self.ui.now_id[i].setText(downloaddata[i]['url'])
-
+            
 
             self.ui.now_image[i].raise_()
             self.ui.now_bar[i].raise_()

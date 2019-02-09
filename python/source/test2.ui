@@ -38,142 +38,6 @@
     <property name="currentIndex">
      <number>0</number>
     </property>
-    <widget class="QWidget" name="page_link">
-     <widget class="QPushButton" name="btn_link_download">
-      <property name="geometry">
-       <rect>
-        <x>380</x>
-        <y>680</y>
-        <width>171</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>다운로드</string>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="combo_link_format">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>680</y>
-        <width>176</width>
-        <height>31</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="btn_link_file">
-      <property name="geometry">
-       <rect>
-        <x>520</x>
-        <y>640</y>
-        <width>31</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{image:url(./image/folder1.png); border:0px; background-color : rgba(0,0,0,0);}
-QPushButton:hover{image:url(./image/folder2.png); border:0px;background-color : rgba(0,0,0,0);}</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_2">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>640</y>
-        <width>501</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color : white; border:0px;</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="combo_link_format_2">
-      <property name="geometry">
-       <rect>
-        <x>200</x>
-        <y>680</y>
-        <width>171</width>
-        <height>31</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QScrollArea" name="panel_link">
-      <property name="geometry">
-       <rect>
-        <x>-10</x>
-        <y>70</y>
-        <width>561</width>
-        <height>561</height>
-       </rect>
-      </property>
-      <property name="widgetResizable">
-       <bool>true</bool>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-      </property>
-      <widget class="QWidget" name="layout_link_data">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>559</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <layout class="QVBoxLayout" name="verticalLayout_7">
-        <property name="spacing">
-         <number>0</number>
-        </property>
-        <property name="sizeConstraint">
-         <enum>QLayout::SetDefaultConstraint</enum>
-        </property>
-        <property name="leftMargin">
-         <number>0</number>
-        </property>
-        <property name="topMargin">
-         <number>0</number>
-        </property>
-        <property name="rightMargin">
-         <number>0</number>
-        </property>
-        <property name="bottomMargin">
-         <number>0</number>
-        </property>
-       </layout>
-      </widget>
-     </widget>
-     <widget class="QLabel" name="asdf_2">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>10</y>
-        <width>551</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>재생목록 / 동영상 선택</string>
-      </property>
-     </widget>
-    </widget>
     <widget class="QWidget" name="page_3">
      <widget class="QScrollArea" name="scrollArea_2">
       <property name="geometry">
@@ -192,7 +56,7 @@ QPushButton:hover{image:url(./image/folder2.png); border:0px;background-color : 
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>98</width>
+         <width>392</width>
          <height>966</height>
         </rect>
        </property>
@@ -1327,38 +1191,6 @@ QPushButton:checked{image:url(./image/sub2.png); border:0px;background-color : r
     <hint type="destinationlabel">
      <x>376</x>
      <y>-13</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>btn_link_file</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>btn_file_chooser_event()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>616</x>
-     <y>655</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>576</x>
-     <y>-2</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>btn_link_download</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>btn_download_event()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>533</x>
-     <y>696</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>408</x>
-     <y>-4</y>
     </hint>
    </hints>
   </connection>

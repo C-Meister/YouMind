@@ -30,6 +30,5 @@ downloaddata = [
 list1 = Kit(ui)
 list1.add_now_list(downloaddata)
 
-
 app.exec_()
 

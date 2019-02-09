@@ -9,6 +9,7 @@ class Kit(QtWidgets.QMainWindow):
         super().__init__()
         self.ui = ui   
         self.urlbuf= []
+        self.percentbuf = []
     def clear_download_list(self):
         self.clearLayout(self.ui.verticalLayout_7)
 
@@ -85,6 +86,7 @@ class Kit(QtWidgets.QMainWindow):
             self.ui.linked_id[i].setObjectName("linked_id")
             self.ui.linked_id[i].setText(downloaddata[i]['url'])
             self.urlbuf.append(downloaddata[i]['url'])
+
             self.ui.verticalLayout_7.addWidget(self.ui.linked_p[i])
 
     def add_now_list(self, downloaddata):
@@ -180,6 +182,7 @@ class Kit(QtWidgets.QMainWindow):
             self.ui.now_id[i].raise_()
             self.ui.now_youtube_icon[i].raise_()
             self.ui.verticalLayout_6.addWidget(self.ui.now_panel[i])
+
 
 
     

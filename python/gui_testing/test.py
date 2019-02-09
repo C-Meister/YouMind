@@ -61,41 +61,6 @@ def add_download_list(self): #함수명 알아서 바꾸셈
 
 
 
-# self.linked_p = QtWidgets.QWidget(self.layout_link_data)
-# self.linked_p.setMinimumSize(QtCore.QSize(0, 120))
-# self.linked_p.setMaximumSize(QtCore.QSize(16777215, 120))
-# self.linked_p.setObjectName("linked_p")
-# self.linked_image = QtWidgets.QLabel(self.linked_p)
-# self.linked_image.setGeometry(QtCore.QRect(10, 10, 160, 90))
-# self.linked_image.setStyleSheet("background-color : black ;")
-# self.linked_image.setObjectName("linked_image")
-# self.linked_title = QtWidgets.QLabel(self.linked_p)
-# self.linked_title.setGeometry(QtCore.QRect(180, 10, 281, 71))
-# font = QtGui.QFont()
-# font.setFamily("서울남산체 EB")
-# font.setPointSize(16)
-# self.linked_title.setFont(font)
-# self.linked_title.setScaledContents(False)
-# self.linked_title.setWordWrap(True)
-# self.linked_title.setObjectName("linked_title")
-# self.linked_youtube_icon = QtWidgets.QLabel(self.linked_p)
-# self.linked_youtube_icon.setGeometry(QtCore.QRect(182, 80, 21, 21))
-# self.linked_youtube_icon.setStyleSheet("image:url(./image/sub1.png);")
-# self.linked_youtube_icon.setText("")
-# self.linked_youtube_icon.setObjectName("linked_youtube_icon")
-# self.linked_id = QtWidgets.QLabel(self.linked_p)
-# self.linked_id.setGeometry(QtCore.QRect(210, 80, 191, 20))
-# font = QtGui.QFont()
-# font.setFamily("서울남산체 M")
-# font.setPointSize(11)
-# self.linked_id.setFont(font)
-# self.linked_id.setObjectName("linked_id")
-# self.verticalLayout_7.addWidget(self.linked_p)
-
-
-
-
-
 
 app = QtWidgets.QApplication(sys.argv)
 MainWindow = QtWidgets.QMainWindow()
@@ -105,6 +70,8 @@ MainWindow.show()
 ui = Ui_MainWindow()
 ui.setupUi(MainWindow)
 
+
+#요게 데이터이고 함수로 넘겨주는게 아니여서 전역변수 씀 그래서 downloaddata명ㅇ인데 일단 ㅎㅎ
 downloaddata = [
 {"thumbnail": "https://i.ytimg.com/vi/fSOpiZo1BAA/mqdefault.jpg", "url": "https://www.youtube.com/watch?v=P9J87Bxdtg8", "title" : "가ssssssssssssssssfaerraerㅁ다검;ㄴ이럼ㄴ이ㅑㅈㄷ나다"},
 {"thumbnail": "https://i.ytimg.com/vi/fSOpiZo1BAA/mqdefault.jpg", "url": "https://www.youtube.com/watch?v=P9J87Bxdtg8", "title" : "가나다"},

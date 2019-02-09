@@ -25,15 +25,16 @@ def th():
     while True:
         message = nativemessaging.get_message()
         signal.signal.emit(message)
-        MainWindow.setWindowState(MainWindow.windowState(
-        ) & ~QtCore.Qt.WindowMinimized | QtCore.Qt.WindowActive)
-        MainWindow.activateWindow()
+        # MainWindow.setWindowState(MainWindow.windowState(
+        # ) & ~QtCore.Qt.WindowMinimized | QtCore.Qt.WindowActive)
+        # MainWindow.activateWindow()
 
 # def get_real_resl(idx, exttype):
 # 	if exttype == VIDEO:
 # 		return video_resls_map[idx]
 # 	else:
 # 		return audio_resls_map[idx]
+
 
 # def get_exttype(idx):
 # 	if combo_1_items[idx] in video_formats:
@@ -60,7 +61,7 @@ if __name__ == "__main__":
 
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    yt = youtube(API_KEY,"C:\\Users\\YASUO\\Videos\\")
+    yt = youtube(API_KEY, "E:\\videos\\")
     btn = Btn(MainWindow)
     MainWindow.show()
     ui = Ui_MainWindow()
@@ -71,7 +72,7 @@ if __name__ == "__main__":
     signal.signal.connect(signal.onMessaged)
     # signal.signal.emit("https://www.youtube.com/watch?v=pQAaTEItkB0")
     # list1.add_download_list(yt.get_videos('https://www.youtube.com/channel/UCMRdlwfhLECvQw0FN0s_csg'))
-    btn.btn_add(list1, yt,ui)
+    btn.btn_add(list1, yt, ui)
     chromeThread = threading.Thread(target=th, daemon=True)
     chromeThread.start()
     app.exec_()

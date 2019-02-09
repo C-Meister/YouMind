@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color : rgb(237,237,245);</string>
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QStackedWidget" name="stackedWidget">
@@ -152,9 +152,9 @@ QPushButton:hover{image:url(./image/folder2.png); border:0px;background-color : 
       <property name="geometry">
        <rect>
         <x>-10</x>
-        <y>20</y>
+        <y>70</y>
         <width>561</width>
-        <height>591</height>
+        <height>561</height>
        </rect>
       </property>
       <property name="widgetResizable">
@@ -200,6 +200,19 @@ QPushButton:hover{image:url(./image/folder2.png); border:0px;background-color : 
        </layout>
       </widget>
      </widget>
+     <widget class="QLabel" name="asdf_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>10</y>
+        <width>551</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>재생목록 / 동영상 선택</string>
+      </property>
+     </widget>
      <zorder>btn_link_download</zorder>
      <zorder>combo_link_format</zorder>
      <zorder>btn_link_file</zorder>
@@ -207,6 +220,8 @@ QPushButton:hover{image:url(./image/folder2.png); border:0px;background-color : 
      <zorder>lineEdit_2</zorder>
      <zorder>combo_link_format_2</zorder>
      <zorder>panel_link</zorder>
+     <zorder>asdf_2</zorder>
+     <zorder>verticalLayoutWidget</zorder>
     </widget>
     <widget class="QWidget" name="page_3">
      <widget class="QScrollArea" name="scrollArea_2">
@@ -1096,770 +1111,365 @@ QPushButton:hover{image:url(./image/folder2.png); border:0px;background-color : 
      </widget>
     </widget>
    </widget>
-   <widget class="QScrollArea" name="scrollArea">
+   <widget class="QWidget" name="widget_17" native="true">
     <property name="geometry">
      <rect>
-      <x>640</x>
-      <y>70</y>
-      <width>641</width>
-      <height>651</height>
+      <x>0</x>
+      <y>0</y>
+      <width>71</width>
+      <height>721</height>
      </rect>
     </property>
-    <property name="widgetResizable">
-     <bool>true</bool>
+    <property name="styleSheet">
+     <string notr="true">background-color(237,237,245);</string>
     </property>
-    <widget class="QWidget" name="scrollAreaWidgetContents">
+    <widget class="QWidget" name="verticalLayoutWidget">
      <property name="geometry">
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>622</width>
-       <height>894</height>
+       <width>71</width>
+       <height>711</height>
       </rect>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_6">
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <property name="sizeConstraint">
+       <enum>QLayout::SetMaximumSize</enum>
+      </property>
+      <property name="topMargin">
+       <number>5</number>
+      </property>
       <item>
-       <widget class="QWidget" name="widget_2" native="true">
+       <widget class="QPushButton" name="btn_link">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="minimumSize">
          <size>
-          <width>0</width>
-          <height>120</height>
+          <width>50</width>
+          <height>50</height>
          </size>
         </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>120</height>
-         </size>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
         </property>
-        <widget class="QLabel" name="label_9">
-         <property name="geometry">
-          <rect>
-           <x>190</x>
-           <y>80</y>
-           <width>111</width>
-           <height>16</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>영상길이</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_10">
-         <property name="geometry">
-          <rect>
-           <x>190</x>
-           <y>20</y>
-           <width>231</width>
-           <height>51</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>나중에 동적생성</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_11">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>10</y>
-           <width>160</width>
-           <height>90</height>
-          </rect>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color : black ;</string>
-         </property>
-         <property name="text">
-          <string>썸네일ㄴㅇㄹㄴㅇㄹㄴㅇㄹ</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_12">
-         <property name="geometry">
-          <rect>
-           <x>330</x>
-           <y>80</y>
-           <width>111</width>
-           <height>16</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>영상용량</string>
-         </property>
-        </widget>
-        <widget class="QProgressBar" name="progressBar_2">
-         <property name="geometry">
-          <rect>
-           <x>430</x>
-           <y>80</y>
-           <width>201</width>
-           <height>23</height>
-          </rect>
-         </property>
-         <property name="value">
-          <number>24</number>
-         </property>
-        </widget>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{image:url(./image/link1.png); border:0px; background-color : rgba(0,0,0,0);}
+QPushButton:hover{image:url(./image/link2.png); border:0px;background-color : rgba(0,0,0,0);}
+QPushButton:checked{image:url(./image/link2.png); border:0px;background-color : rgba(0,0,0,0);}</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
+        </property>
        </widget>
       </item>
       <item>
-       <widget class="QWidget" name="widget_14" native="true">
+       <widget class="QPushButton" name="btn_sub">
         <property name="minimumSize">
          <size>
-          <width>0</width>
-          <height>120</height>
+          <width>50</width>
+          <height>50</height>
          </size>
         </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>120</height>
-         </size>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
         </property>
-        <widget class="QLabel" name="label_65">
-         <property name="geometry">
-          <rect>
-           <x>190</x>
-           <y>80</y>
-           <width>111</width>
-           <height>16</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>영상길이</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_66">
-         <property name="geometry">
-          <rect>
-           <x>190</x>
-           <y>20</y>
-           <width>231</width>
-           <height>51</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>제목 : 입니다</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_67">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>10</y>
-           <width>160</width>
-           <height>90</height>
-          </rect>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color : black ;</string>
-         </property>
-         <property name="text">
-          <string>썸네일ㄴㅇㄹㄴㅇㄹㄴㅇㄹ</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_68">
-         <property name="geometry">
-          <rect>
-           <x>330</x>
-           <y>80</y>
-           <width>111</width>
-           <height>16</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>영상용량</string>
-         </property>
-        </widget>
-        <widget class="QProgressBar" name="progressBar_16">
-         <property name="geometry">
-          <rect>
-           <x>430</x>
-           <y>80</y>
-           <width>201</width>
-           <height>23</height>
-          </rect>
-         </property>
-         <property name="value">
-          <number>24</number>
-         </property>
-        </widget>
+        <property name="contextMenuPolicy">
+         <enum>Qt::DefaultContextMenu</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{image:url(./image/sub1.png); border:0px; background-color : rgba(0,0,0,0);}
+QPushButton:hover{image:url(./image/sub2.png); border:0px;background-color : rgba(0,0,0,0);}
+QPushButton:checked{image:url(./image/sub2.png); border:0px;background-color : rgba(0,0,0,0);}</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
       <item>
-       <widget class="QWidget" name="widget_16" native="true">
+       <widget class="QPushButton" name="pushButton_3">
         <property name="minimumSize">
          <size>
-          <width>0</width>
-          <height>120</height>
+          <width>50</width>
+          <height>50</height>
          </size>
         </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>120</height>
-         </size>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
         </property>
-        <widget class="QLabel" name="label_73">
-         <property name="geometry">
-          <rect>
-           <x>190</x>
-           <y>80</y>
-           <width>111</width>
-           <height>16</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>영상길이</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_74">
-         <property name="geometry">
-          <rect>
-           <x>190</x>
-           <y>20</y>
-           <width>231</width>
-           <height>51</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>제목 : 입니다</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_75">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>10</y>
-           <width>160</width>
-           <height>90</height>
-          </rect>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color : black ;</string>
-         </property>
-         <property name="text">
-          <string>썸네일ㄴㅇㄹㄴㅇㄹㄴㅇㄹ</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_76">
-         <property name="geometry">
-          <rect>
-           <x>330</x>
-           <y>80</y>
-           <width>111</width>
-           <height>16</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>영상용량</string>
-         </property>
-        </widget>
-        <widget class="QProgressBar" name="progressBar_18">
-         <property name="geometry">
-          <rect>
-           <x>430</x>
-           <y>80</y>
-           <width>201</width>
-           <height>23</height>
-          </rect>
-         </property>
-         <property name="value">
-          <number>24</number>
-         </property>
-        </widget>
+        <property name="text">
+         <string>예비1</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
       <item>
-       <widget class="QWidget" name="widget_15" native="true">
+       <widget class="QPushButton" name="pushButton_4">
         <property name="minimumSize">
          <size>
-          <width>0</width>
-          <height>120</height>
+          <width>50</width>
+          <height>50</height>
          </size>
         </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>120</height>
-         </size>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
         </property>
-        <widget class="QLabel" name="label_69">
-         <property name="geometry">
-          <rect>
-           <x>190</x>
-           <y>80</y>
-           <width>111</width>
-           <height>16</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>영상길이</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_70">
-         <property name="geometry">
-          <rect>
-           <x>190</x>
-           <y>20</y>
-           <width>231</width>
-           <height>51</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>제목 : 입니다</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_71">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>10</y>
-           <width>160</width>
-           <height>90</height>
-          </rect>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color : black ;</string>
-         </property>
-         <property name="text">
-          <string>썸네일ㄴㅇㄹㄴㅇㄹㄴㅇㄹ</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_72">
-         <property name="geometry">
-          <rect>
-           <x>330</x>
-           <y>80</y>
-           <width>111</width>
-           <height>16</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>영상용량</string>
-         </property>
-        </widget>
-        <widget class="QProgressBar" name="progressBar_17">
-         <property name="geometry">
-          <rect>
-           <x>430</x>
-           <y>80</y>
-           <width>201</width>
-           <height>23</height>
-          </rect>
-         </property>
-         <property name="value">
-          <number>24</number>
-         </property>
-        </widget>
+        <property name="text">
+         <string>예비2</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
       <item>
-       <widget class="QWidget" name="widget_13" native="true">
+       <widget class="QPushButton" name="pushButton_5">
         <property name="minimumSize">
          <size>
-          <width>0</width>
-          <height>120</height>
+          <width>50</width>
+          <height>50</height>
          </size>
         </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>120</height>
-         </size>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
         </property>
-        <widget class="QLabel" name="label_17">
-         <property name="geometry">
-          <rect>
-           <x>190</x>
-           <y>80</y>
-           <width>111</width>
-           <height>16</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>영상길이</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_18">
-         <property name="geometry">
-          <rect>
-           <x>190</x>
-           <y>20</y>
-           <width>231</width>
-           <height>51</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>제목 : 입니다</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_19">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>10</y>
-           <width>160</width>
-           <height>90</height>
-          </rect>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color : black ;</string>
-         </property>
-         <property name="text">
-          <string>썸네일ㄴㅇㄹㄴㅇㄹㄴㅇㄹ</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_64">
-         <property name="geometry">
-          <rect>
-           <x>330</x>
-           <y>80</y>
-           <width>111</width>
-           <height>16</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>영상용량</string>
-         </property>
-        </widget>
-        <widget class="QProgressBar" name="progressBar_4">
-         <property name="geometry">
-          <rect>
-           <x>430</x>
-           <y>80</y>
-           <width>201</width>
-           <height>23</height>
-          </rect>
-         </property>
-         <property name="value">
-          <number>24</number>
-         </property>
-        </widget>
-       </widget>
-      </item>
-      <item>
-       <widget class="QWidget" name="widget_3" native="true">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>120</height>
-         </size>
+        <property name="text">
+         <string>예비3</string>
         </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>120</height>
-         </size>
+        <property name="checkable">
+         <bool>true</bool>
         </property>
-        <widget class="QLabel" name="label_13">
-         <property name="geometry">
-          <rect>
-           <x>190</x>
-           <y>80</y>
-           <width>111</width>
-           <height>16</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>영상길이</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_14">
-         <property name="geometry">
-          <rect>
-           <x>190</x>
-           <y>20</y>
-           <width>231</width>
-           <height>51</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>제목 : 입니다</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_15">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>10</y>
-           <width>160</width>
-           <height>90</height>
-          </rect>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color : black ;</string>
-         </property>
-         <property name="text">
-          <string>썸네일ㄴㅇㄹㄴㅇㄹㄴㅇㄹ</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_16">
-         <property name="geometry">
-          <rect>
-           <x>330</x>
-           <y>80</y>
-           <width>111</width>
-           <height>16</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>영상용량</string>
-         </property>
-        </widget>
-        <widget class="QProgressBar" name="progressBar_3">
-         <property name="geometry">
-          <rect>
-           <x>430</x>
-           <y>80</y>
-           <width>201</width>
-           <height>23</height>
-          </rect>
-         </property>
-         <property name="value">
-          <number>24</number>
-         </property>
-        </widget>
-       </widget>
-      </item>
-      <item>
-       <widget class="QWidget" name="widget" native="true">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>120</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>120</height>
-         </size>
-        </property>
-        <widget class="QLabel" name="label_5">
-         <property name="geometry">
-          <rect>
-           <x>190</x>
-           <y>80</y>
-           <width>111</width>
-           <height>16</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>영상길이</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_6">
-         <property name="geometry">
-          <rect>
-           <x>190</x>
-           <y>20</y>
-           <width>231</width>
-           <height>51</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>제목 : 입니다</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_7">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>10</y>
-           <width>160</width>
-           <height>90</height>
-          </rect>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color : black ;</string>
-         </property>
-         <property name="text">
-          <string>썸네일ㄴㅇㄹㄴㅇㄹㄴㅇㄹ</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_8">
-         <property name="geometry">
-          <rect>
-           <x>330</x>
-           <y>80</y>
-           <width>111</width>
-           <height>16</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>영상용량</string>
-         </property>
-        </widget>
-        <widget class="QProgressBar" name="progressBar">
-         <property name="geometry">
-          <rect>
-           <x>430</x>
-           <y>80</y>
-           <width>201</width>
-           <height>23</height>
-          </rect>
-         </property>
-         <property name="value">
-          <number>24</number>
-         </property>
-        </widget>
        </widget>
       </item>
      </layout>
     </widget>
    </widget>
-   <widget class="QLabel" name="asdf">
+   <widget class="QWidget" name="widget_18" native="true">
     <property name="geometry">
      <rect>
-      <x>650</x>
-      <y>10</y>
-      <width>621</width>
-      <height>51</height>
+      <x>639</x>
+      <y>-1</y>
+      <width>641</width>
+      <height>721</height>
      </rect>
     </property>
-    <property name="text">
-     <string>현재다운로드 목록</string>
+    <property name="styleSheet">
+     <string notr="true">background-color : rgb(245,245,245);</string>
     </property>
-   </widget>
-   <widget class="QWidget" name="verticalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>10</y>
-      <width>71</width>
-      <height>302</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_2">
-     <property name="sizeConstraint">
-      <enum>QLayout::SetMaximumSize</enum>
+    <widget class="QLabel" name="asdf">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>621</width>
+       <height>51</height>
+      </rect>
      </property>
-     <item>
-      <widget class="QPushButton" name="btn_link">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
+     <property name="text">
+      <string>현재다운로드 목록</string>
+     </property>
+    </widget>
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>70</y>
+       <width>641</width>
+       <height>641</height>
+      </rect>
+     </property>
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>639</width>
+        <height>120</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <property name="spacing">
+        <number>0</number>
        </property>
-       <property name="minimumSize">
-        <size>
-         <width>50</width>
-         <height>50</height>
-        </size>
+       <property name="leftMargin">
+        <number>0</number>
        </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
+       <property name="topMargin">
+        <number>0</number>
        </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton{image:url(./image/link1.png); border:0px; background-color : rgba(0,0,0,0);}
-QPushButton:hover{image:url(./image/link2.png); border:0px;background-color : rgba(0,0,0,0);}
-QPushButton:checked{image:url(./image/link2.png); border:0px;background-color : rgba(0,0,0,0);}</string>
+       <property name="rightMargin">
+        <number>0</number>
        </property>
-       <property name="text">
-        <string/>
+       <property name="bottomMargin">
+        <number>0</number>
        </property>
-       <property name="checkable">
-        <bool>true</bool>
-       </property>
-       <property name="checked">
-        <bool>false</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btn_sub">
-       <property name="minimumSize">
-        <size>
-         <width>50</width>
-         <height>50</height>
-        </size>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="contextMenuPolicy">
-        <enum>Qt::DefaultContextMenu</enum>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton{image:url(./image/sub1.png); border:0px; background-color : rgba(0,0,0,0);}
-QPushButton:hover{image:url(./image/sub2.png); border:0px;background-color : rgba(0,0,0,0);}
-QPushButton:checked{image:url(./image/sub2.png); border:0px;background-color : rgba(0,0,0,0);}</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="checkable">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_3">
-       <property name="minimumSize">
-        <size>
-         <width>50</width>
-         <height>50</height>
-        </size>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="text">
-        <string>예비1</string>
-       </property>
-       <property name="checkable">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_4">
-       <property name="minimumSize">
-        <size>
-         <width>50</width>
-         <height>50</height>
-        </size>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="text">
-        <string>예비2</string>
-       </property>
-       <property name="checkable">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_5">
-       <property name="minimumSize">
-        <size>
-         <width>50</width>
-         <height>50</height>
-        </size>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="text">
-        <string>예비3</string>
-       </property>
-       <property name="checkable">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-    </layout>
+       <item>
+        <widget class="QWidget" name="widget_2" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>120</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>120</height>
+          </size>
+         </property>
+         <widget class="QLabel" name="label_11">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>160</width>
+            <height>90</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color : black ;</string>
+          </property>
+          <property name="text">
+           <string>썸네일ㄴㅇㄹㄴㅇㄹㄴㅇㄹ</string>
+          </property>
+         </widget>
+         <widget class="QProgressBar" name="progressBar_2">
+          <property name="geometry">
+           <rect>
+            <x>180</x>
+            <y>80</y>
+            <width>431</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>서울남산체 M</family>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QProgressBar {
+     border: 2px solid grey;
+     border-radius: 5px;
+     background-color: #FFFFFF;
+	 text-color : rgb(128,128,128);
+}
+
+ QProgressBar::chunk {
+     background-color: #A293BD;
+     width: 20px;
+ }</string>
+          </property>
+          <property name="value">
+           <number>58</number>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="format">
+           <string>%p%</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="linked_youtube_icon_6">
+          <property name="geometry">
+           <rect>
+            <x>180</x>
+            <y>55</y>
+            <width>21</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">image:url(./image/sub1.png);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="linked_title_6">
+          <property name="geometry">
+           <rect>
+            <x>178</x>
+            <y>10</y>
+            <width>421</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>서울남산체 EB</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>'사탄 : 아 이건 좀;;, 사탄 드립'은 어디서 나온 말일까?ㄴㅇㄹㄴㅇㄹㄴㅇㄹ</string>
+          </property>
+          <property name="scaledContents">
+           <bool>false</bool>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QLabel" name="linked_id_6">
+          <property name="geometry">
+           <rect>
+            <x>208</x>
+            <y>55</y>
+            <width>351</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>서울남산체 M</family>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>https://www.youtube.com/watch?v=P9J87Bxdtg8</string>
+          </property>
+         </widget>
+         <zorder>label_11</zorder>
+         <zorder>progressBar_2</zorder>
+         <zorder>linked_title_6</zorder>
+         <zorder>linked_id_6</zorder>
+         <zorder>linked_youtube_icon_6</zorder>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
    </widget>
    <zorder>stackedWidget</zorder>
    <zorder>widget_9</zorder>
    <zorder>widget_9</zorder>
-   <zorder>scrollArea</zorder>
-   <zorder>asdf</zorder>
-   <zorder>verticalLayoutWidget</zorder>
+   <zorder>widget_17</zorder>
+   <zorder>widget_18</zorder>
   </widget>
  </widget>
  <resources/>

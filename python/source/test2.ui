@@ -61,26 +61,6 @@
         <height>31</height>
        </rect>
       </property>
-      <item>
-       <property name="text">
-        <string>동영상 - MP4</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>음악 - MP3</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>음악 - OGG</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>장민석 - 신상호</string>
-       </property>
-      </item>
      </widget>
      <widget class="QPushButton" name="btn_link_file">
       <property name="geometry">
@@ -115,7 +95,7 @@ QPushButton:hover{image:url(./image/folder2.png); border:0px;background-color : 
        <string notr="true">background-color : white; border:0px;</string>
       </property>
       <property name="text">
-       <string>C:\Windows\System32\cmd.exe</string>
+       <string/>
       </property>
      </widget>
      <widget class="QComboBox" name="combo_link_format_2">
@@ -213,15 +193,6 @@ QPushButton:hover{image:url(./image/folder2.png); border:0px;background-color : 
        <string>재생목록 / 동영상 선택</string>
       </property>
      </widget>
-     <zorder>btn_link_download</zorder>
-     <zorder>combo_link_format</zorder>
-     <zorder>btn_link_file</zorder>
-     <zorder>btn_link</zorder>
-     <zorder>lineEdit_2</zorder>
-     <zorder>combo_link_format_2</zorder>
-     <zorder>panel_link</zorder>
-     <zorder>asdf_2</zorder>
-     <zorder>verticalLayoutWidget</zorder>
     </widget>
     <widget class="QWidget" name="page_3">
      <widget class="QScrollArea" name="scrollArea_2">
@@ -241,7 +212,7 @@ QPushButton:hover{image:url(./image/folder2.png); border:0px;background-color : 
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>392</width>
+         <width>98</width>
          <height>966</height>
         </rect>
        </property>
@@ -1072,9 +1043,6 @@ QPushButton:hover{image:url(./image/folder2.png); border:0px;background-color : 
        <string>구도곡ㄷ고독도곧고</string>
       </property>
      </widget>
-     <zorder>scrollArea</zorder>
-     <zorder>scrollArea_2</zorder>
-     <zorder>label_4</zorder>
     </widget>
     <widget class="QWidget" name="page_2">
      <widget class="QScrollArea" name="scrollArea_3">
@@ -1170,6 +1138,9 @@ QPushButton:checked{image:url(./image/link2.png); border:0px;background-color : 
         <property name="checked">
          <bool>false</bool>
         </property>
+        <attribute name="buttonGroup">
+         <string notr="true">buttonGroup</string>
+        </attribute>
        </widget>
       </item>
       <item>
@@ -1197,6 +1168,9 @@ QPushButton:checked{image:url(./image/sub2.png); border:0px;background-color : r
         <property name="checkable">
          <bool>true</bool>
         </property>
+        <attribute name="buttonGroup">
+         <string notr="true">buttonGroup</string>
+        </attribute>
        </widget>
       </item>
       <item>
@@ -1216,6 +1190,9 @@ QPushButton:checked{image:url(./image/sub2.png); border:0px;background-color : r
         <property name="checkable">
          <bool>true</bool>
         </property>
+        <attribute name="buttonGroup">
+         <string notr="true">buttonGroup</string>
+        </attribute>
        </widget>
       </item>
       <item>
@@ -1235,6 +1212,9 @@ QPushButton:checked{image:url(./image/sub2.png); border:0px;background-color : r
         <property name="checkable">
          <bool>true</bool>
         </property>
+        <attribute name="buttonGroup">
+         <string notr="true">buttonGroup</string>
+        </attribute>
        </widget>
       </item>
       <item>
@@ -1254,6 +1234,9 @@ QPushButton:checked{image:url(./image/sub2.png); border:0px;background-color : r
         <property name="checkable">
          <bool>true</bool>
         </property>
+        <attribute name="buttonGroup">
+         <string notr="true">buttonGroup</string>
+        </attribute>
        </widget>
       </item>
      </layout>
@@ -1284,7 +1267,7 @@ QPushButton:checked{image:url(./image/sub2.png); border:0px;background-color : r
       <string>현재다운로드 목록</string>
      </property>
     </widget>
-    <widget class="QScrollArea" name="scrollArea">
+    <widget class="QScrollArea" name="now_download_scroll">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -1296,7 +1279,7 @@ QPushButton:checked{image:url(./image/sub2.png); border:0px;background-color : r
      <property name="widgetResizable">
       <bool>true</bool>
      </property>
-     <widget class="QWidget" name="scrollAreaWidgetContents">
+     <widget class="QWidget" name="now_download_layout">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -1328,7 +1311,7 @@ QPushButton:checked{image:url(./image/sub2.png); border:0px;background-color : r
         <number>0</number>
        </property>
        <item>
-        <widget class="QWidget" name="widget_2" native="true">
+        <widget class="QWidget" name="now_panel" native="true">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -1341,7 +1324,7 @@ QPushButton:checked{image:url(./image/sub2.png); border:0px;background-color : r
            <height>120</height>
           </size>
          </property>
-         <widget class="QLabel" name="label_11">
+         <widget class="QLabel" name="now_image">
           <property name="geometry">
            <rect>
             <x>10</x>
@@ -1357,7 +1340,7 @@ QPushButton:checked{image:url(./image/sub2.png); border:0px;background-color : r
            <string>썸네일ㄴㅇㄹㄴㅇㄹㄴㅇㄹ</string>
           </property>
          </widget>
-         <widget class="QProgressBar" name="progressBar_2">
+         <widget class="QProgressBar" name="now_bar">
           <property name="geometry">
            <rect>
             <x>180</x>
@@ -1394,7 +1377,7 @@ QPushButton:checked{image:url(./image/sub2.png); border:0px;background-color : r
            <string>%p%</string>
           </property>
          </widget>
-         <widget class="QLabel" name="linked_youtube_icon_6">
+         <widget class="QLabel" name="now_youtube_icon">
           <property name="geometry">
            <rect>
             <x>180</x>
@@ -1410,7 +1393,7 @@ QPushButton:checked{image:url(./image/sub2.png); border:0px;background-color : r
            <string/>
           </property>
          </widget>
-         <widget class="QLabel" name="linked_title_6">
+         <widget class="QLabel" name="now_title">
           <property name="geometry">
            <rect>
             <x>178</x>
@@ -1435,7 +1418,7 @@ QPushButton:checked{image:url(./image/sub2.png); border:0px;background-color : r
            <bool>true</bool>
           </property>
          </widget>
-         <widget class="QLabel" name="linked_id_6">
+         <widget class="QLabel" name="now_id">
           <property name="geometry">
            <rect>
             <x>208</x>
@@ -1454,27 +1437,93 @@ QPushButton:checked{image:url(./image/sub2.png); border:0px;background-color : r
            <string>https://www.youtube.com/watch?v=P9J87Bxdtg8</string>
           </property>
          </widget>
-         <zorder>label_11</zorder>
-         <zorder>progressBar_2</zorder>
-         <zorder>linked_title_6</zorder>
-         <zorder>linked_id_6</zorder>
-         <zorder>linked_youtube_icon_6</zorder>
+         <zorder>now_image</zorder>
+         <zorder>now_bar</zorder>
+         <zorder>now_title</zorder>
+         <zorder>now_id</zorder>
+         <zorder>now_youtube_icon</zorder>
         </widget>
        </item>
       </layout>
      </widget>
     </widget>
    </widget>
-   <zorder>stackedWidget</zorder>
-   <zorder>widget_9</zorder>
-   <zorder>widget_9</zorder>
-   <zorder>widget_17</zorder>
-   <zorder>widget_18</zorder>
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>btn_link</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>btn_link_event()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>41</x>
+     <y>86</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>296</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_sub</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>btn_sub_event()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>42</x>
+     <y>233</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>376</x>
+     <y>-13</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_link_file</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>btn_file_chooser_event()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>616</x>
+     <y>655</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>576</x>
+     <y>-2</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_link_download</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>btn_download_event()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>533</x>
+     <y>696</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>408</x>
+     <y>-4</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
  <slots>
   <slot>btn_link_event()</slot>
+  <slot>btn_sub_event()</slot>
+  <slot>btn_file_chooser_event()</slot>
+  <slot>btn_download_event()</slot>
  </slots>
+ <buttongroups>
+  <buttongroup name="buttonGroup"/>
+ </buttongroups>
 </ui>

@@ -178,5 +178,5 @@ class Kit(QtWidgets.QMainWindow):
             self.ui.now_youtube_icon[i].raise_()
             self.ui.verticalLayout_6.addWidget(self.ui.now_panel[i])
 
-        self.ui.now_bar[1].setValue(50)
+
     

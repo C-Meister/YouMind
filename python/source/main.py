@@ -15,7 +15,7 @@ API_KEY = "AIzaSyCb0j6QKRcOvfqpeta1slWJZCrj6xIkD5Y"
 if __name__ == "__main__":
 
 	list1 = 0
-
+    
 	app = QtWidgets.QApplication(sys.argv)
 	MainWindow = QtWidgets.QMainWindow()
 	yt = youtube(API_KEY)

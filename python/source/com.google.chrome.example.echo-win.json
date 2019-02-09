@@ -5,7 +5,7 @@
 {
   "name": "com.google.chrome.example.echo",
   "description": "Chrome Native Messaging API Example Host",
-  "path": "start.bat",
+  "path": "nativeMessaging.py",
   "type": "stdio",
   "allowed_origins": ["chrome-extension://ohlfonabmcoohnapomdomagfmbidlbkc/"]
 }

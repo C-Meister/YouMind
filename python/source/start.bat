@@ -1,1 +1,3 @@
-python youtube.py
+@echo off
+
+python nativeMessaging.py

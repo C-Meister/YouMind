@@ -3,6 +3,8 @@ import urllib
 import pyperclip
 from pprint import pprint as pp
 import simplejson as json
+from time import sleep
+from pathlib import Path
 class youtube():
 
     NOT_YOUTUBE = 0
@@ -13,11 +15,13 @@ class youtube():
     OTHERS = 5
 
     API_KEY =""
+    DOWNLOAD_PATH = ""
 
-
-    def __init__(self, key):
+    def __init__(self, key, path=None):
         self.API_KEY = key
-
+        self.DOWNLOAD_PATH = path
+    def change_path(self,path):
+        self.DOWNLOAD_PATH = path
     def get_urltype(self, url):
         splited = url.split('www.youtube.com/')
         if len(splited) != 2:
@@ -84,6 +88,7 @@ class youtube():
             try:
                 next_page_token = resp['nextPageToken']
                 url = first_url + '&pageToken={}'.format(next_page_token)
+                sleep(0.1)
             except:
                 break
         return video_links
@@ -110,94 +115,38 @@ class youtube():
             try:
                 next_page_token = resp['nextPageToken']
                 url = first_url + '&pageToken={}'.format(next_page_token)
+                sleep(0.1)
             except:
                 break
         return video_links
+    def get_possible_fn(self,title, ext):
+        fn= title+"."+ext
+        idx = 2
+        while Path(fn).exists():
+            fn= title +" ({}).".format(idx)+ext
+            idx+=1
+        return fn
 
-    def getInfo(self, url, ext_filter=None, resl_filter=None):
+    def download_video(self, url, ext_filter=None, resl_filter=None, cb=None):
         print(url)
 
         ytube_video = pafy.new(url)
-        ytube_thumbnail = ytube_video.thumb
-        ytube_duration = ytube_video.duration
-
-        ytube_exts = {}
-        ytube_info = {}
-
-        if ext_filter is None and resl_filter is None:
-        
+        if ext_filter is not None and resl_filter is not None:
             for s in ytube_video.streams:
-                
-                ext = s.extension # 확장자 
-                ytube_ext_info = [s.url, s.get_filesize()] # url과 파일 사이즈
-                ytube_ext_info_dic = {s.resolution : ytube_ext_info}
-
-
-                if not ext in ytube_exts:
-
-                    ext_list = []
-                    ytube_exts[ext] = ext_list
-
-                ytube_exts[ext].append(ytube_ext_info_dic)
-
-            ytube_info = {
-            "thumbnail" : ytube_thumbnail,
-            "title" : ytube_video.title,
-            "download" : ytube_exts,
-            "duration" : ytube_duration
-        }
-
-        elif ext_filter is not None and resl_filter is not None:
-
-            EXIST = 0
-
-            for s in ytube_video.streams:
-
                 ext = s.extension
-
                 if ext == ext_filter and s.resolution == resl_filter:
+                    s.download(filepath=self.get_possible_fn(self.DOWNLOAD_PATH+ytube_video.title,ext),callback=cb)
+                    return
 
-                    ytube_ext_info = [s.url, s.get_filesize()] # url과 파일 사이즈
-                    ytube_ext_info_dic = {s.resolution : ytube_ext_info}
+            ytube_best = ytube_video.getbest(preftype=ext_filter)
+            ytube_best.download(filepath=self.get_possible_fn(self.DOWNLOAD_PATH+ytube_best.title,ytube_best.extension),callback=cb)
+            return
+        return
 
-                    ytube_info = {
-                    "thumbnail" : ytube_thumbnail,
-                    "title" : ytube_video.title,
-                    "download" : ytube_ext_info_dic,
-                    "duration" : ytube_duration
-                    }
-                    EXIST = 1
-
-            if EXIST == 0:
-
-                ytube_best = ytube_video.getbest(preftype=ext_filter)
-
-                ytube_ext_info = [ytube_best.url, ytube_best.get_filesize()]
-                ytube_ext_info_dic = {ytube_best.resolution : ytube_ext_info}
-
-                ytube_info = {
-                    "thumbnail" : ytube_thumbnail,
-                    "title" : ytube_video.title,
-                    "download" : ytube_ext_info_dic,
-                    "duration" : ytube_duration
-                    }
+    def round_robin_download(self,url_list,threadCount = 4):
+        pass
         
 
-        return ytube_info
-
-    def getInfos(self, url, ext, resl):
-
-        urlList = self.get_videos(url)
-        if urlList is None:
-            return None
-        elif not isinstance(urlList, list):
-            return self.getInfo(url)
-
-        InfoList = []
-        for url in urlList:
-            InfoList.append(self.getInfo(url, ext, resl))
-
-        return InfoList
     def get_channel_picture_url(self, id, forUsername=False):
         url ="https://www.googleapis.com/youtube/v3/channels?part=snippet&fields=items%2Fsnippet%2Fthumbnails%2Fdefault&key={}".format(self.API_KEY)
         url += "&forUsername="+ id if forUsername is True else "&id="+id
@@ -205,10 +154,12 @@ class youtube():
         resp = json.load(inp)
         img_url= resp['items'][0]['snippet']['thumbnails']['default']['url']
         return img_url
+    
 
-y = youtube("AIzaSyCQ3RG5_ngnwRtP8cDfGDOdwhwHHE1Qcco")
 
+y = youtube("AIzaSyCZsObQQAM1CWOzhjM6Ezevhr3mq9ueoag","C:\\Users\\YASUO\\Videos\\")
 #pp(y.getInfo(pyperclip.paste()))
 #print(y.getInfos(pyperclip.paste(),"mp4","1280x720"))
 #print(y.get_videos_in_channel("bjummma",True))
+y.download_video("https://www.youtube.com/watch?v=NZvqWmBJLP8",ext_filter="mp4",resl_filter="1280x720")
 #print(y.get_channel_picture_url("mnetMPD",True))

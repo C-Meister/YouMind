@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- uikit 사용 -->
+    <link rel="stylesheet" href="uikit/css/uikit.min.css" />
+    <link rel="stylesheet" href="style/style.css" />
+    <script src="uikit/js/uikit.min.js"></script>
+    <script src="uikit/js/uikit-icons.min.js"></script>
+    <title>YouMind Extension</title>
+  </head>
+  <body>
+    <div id="ym-title" class="uk-width-1-1">
+      <div class="uk-card-title uk-text-center">YouMind Extension</div>
+    </div>
+    <form>
+      <div class="uk-inline uk-margin-left">
+        <a
+          class="uk-form-icon uk-form-icon-flip"
+          href="#"
+          uk-icon="icon: link"
+          uk-tooltip="현재 사이트로부터 불러오기"
+        ></a>
+        <input id="youtube-url" class="uk-input" type="url" />
+      </div>
+      <button
+        id="btn-download"
+        class="uk-button uk-button-primary uk-button-small uk-margin-small-left"
+      >
+        다운로드
+      </button>
+    </form>
+    <!-- script 불러오기 -->
+    <script src="scripts/popup.js"></script>
+  </body>
+</html>

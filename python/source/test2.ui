@@ -107,26 +107,6 @@ QPushButton:hover{image:url(./image/folder2.png); border:0px;background-color : 
         <height>31</height>
        </rect>
       </property>
-      <item>
-       <property name="text">
-        <string>1080p - 17.75MB</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>720p - 17.75MB</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>480p 60ps - 12.5MB</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>장민석 - 신상호</string>
-       </property>
-      </item>
      </widget>
      <widget class="QScrollArea" name="panel_link">
       <property name="geometry">
@@ -1285,7 +1265,7 @@ QPushButton:checked{image:url(./image/sub2.png); border:0px;background-color : r
         <x>0</x>
         <y>0</y>
         <width>639</width>
-        <height>120</height>
+        <height>16</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -1310,140 +1290,6 @@ QPushButton:checked{image:url(./image/sub2.png); border:0px;background-color : r
        <property name="bottomMargin">
         <number>0</number>
        </property>
-       <item>
-        <widget class="QWidget" name="now_panel" native="true">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>120</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>120</height>
-          </size>
-         </property>
-         <widget class="QLabel" name="now_image">
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>10</y>
-            <width>160</width>
-            <height>90</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color : black ;</string>
-          </property>
-          <property name="text">
-           <string>썸네일ㄴㅇㄹㄴㅇㄹㄴㅇㄹ</string>
-          </property>
-         </widget>
-         <widget class="QProgressBar" name="now_bar">
-          <property name="geometry">
-           <rect>
-            <x>180</x>
-            <y>80</y>
-            <width>431</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>서울남산체 M</family>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QProgressBar {
-     border: 2px solid grey;
-     border-radius: 5px;
-     background-color: #FFFFFF;
-	 text-color : rgb(128,128,128);
-}
-
- QProgressBar::chunk {
-     background-color: #A293BD;
-     width: 20px;
- }</string>
-          </property>
-          <property name="value">
-           <number>58</number>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-          <property name="format">
-           <string>%p%</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="now_youtube_icon">
-          <property name="geometry">
-           <rect>
-            <x>180</x>
-            <y>55</y>
-            <width>21</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">image:url(./image/sub1.png);</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-         <widget class="QLabel" name="now_title">
-          <property name="geometry">
-           <rect>
-            <x>178</x>
-            <y>10</y>
-            <width>421</width>
-            <height>51</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>서울남산체 EB</family>
-            <pointsize>12</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>'사탄 : 아 이건 좀;;, 사탄 드립'은 어디서 나온 말일까?ㄴㅇㄹㄴㅇㄹㄴㅇㄹ</string>
-          </property>
-          <property name="scaledContents">
-           <bool>false</bool>
-          </property>
-          <property name="wordWrap">
-           <bool>true</bool>
-          </property>
-         </widget>
-         <widget class="QLabel" name="now_id">
-          <property name="geometry">
-           <rect>
-            <x>208</x>
-            <y>55</y>
-            <width>351</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>서울남산체 M</family>
-            <pointsize>9</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>https://www.youtube.com/watch?v=P9J87Bxdtg8</string>
-          </property>
-         </widget>
-         <zorder>now_image</zorder>
-         <zorder>now_bar</zorder>
-         <zorder>now_title</zorder>
-         <zorder>now_id</zorder>
-         <zorder>now_youtube_icon</zorder>
-        </widget>
-       </item>
       </layout>
      </widget>
     </widget>

@@ -24,14 +24,11 @@ downloaddata = [
 {"thumbnail": "https://i.ytimg.com/vi/fSOpiZo1BAA/mqdefault.jpg", "url": "https://www.youtube.com/watch?v=P9J87Bxdtg8", "title" : "가나다"},
 {"thumbnail": "https://i.ytimg.com/vi/fSOpiZo1BAA/mqdefault.jpg", "url": "https://www.youtube.com/watch?v=P9J87Bxdtg8", "title" : "가나다"},
 {"thumbnail": "https://i.ytimg.com/vi/fSOpiZo1BAA/mqdefault.jpg", "url": "https://www.youtube.com/watch?v=P9J87Bxdtg8", "title" : "가나다"},
-{"thumbnail": "https://i.ytimg.com/vi/fSOpiZo1BAA/mqdefault.jpg", "url": "https://www.youtube.com/watch?v=P9J87Bxdtg8", "title" : "가나다"},
-{"thumbnail": "https://i.ytimg.com/vi/fSOpiZo1BAA/mqdefault.jpg", "url": "https://www.youtube.com/watch?v=P9J87Bxdtg8", "title" : "가나다"},
-{"thumbnail": "https://i.ytimg.com/vi/fSOpiZo1BAA/mqdefault.jpg", "url": "https://www.youtube.com/watch?v=P9J87Bxdtg8", "title" : "가나다"},
 {"thumbnail": "https://i.ytimg.com/vi/fSOpiZo1BAA/mqdefault.jpg", "url": "https://www.youtube.com/watch?v=P9J87Bxdtg8", "title" : "가나다"}
 ]
 
 list1 = Kit(ui)
-list1.add_download_list(downloaddata)
+list1.add_now_list(downloaddata)
 
 
 app.exec_()

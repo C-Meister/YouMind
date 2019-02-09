@@ -5,16 +5,24 @@ import urllib.request
 
 class Kit(QtWidgets.QMainWindow):
 
+    
     def __init__(self, ui):
         super().__init__()
         self.ui = ui   
         self.urlbuf= []
+<<<<<<< HEAD
         self.percentbuf = []
+=======
+        self.ui.now_bar = []
+            
+>>>>>>> bd9fe3fc3e1ff45c9a13a2fac478e7757c038a5f
     def clear_download_list(self):
         self.clearLayout(self.ui.verticalLayout_7)
 
     def clear_now_list(self):
         self.clearLayout(self.ui.verticalLayout_6)
+        self.urlbuf.clear()
+        self.ui.now_bar.clear()
 
     def clearLayout(self, layout):
         while layout.count():
@@ -108,9 +116,11 @@ class Kit(QtWidgets.QMainWindow):
             self.ui.now_panel[i]) for i in range(length)]
         self.ui.now_id = [QtWidgets.QLabel(
             self.ui.now_panel[i]) for i in range(length)]
-        self.ui.now_bar = [QtWidgets.QProgressBar(
-            self.ui.now_panel[i]) for i in range(length)]
+        
+
         for i in range(length):
+            self.ui.now_bar.append(QtWidgets.QProgressBar(self.ui.now_panel[i]))
+            ni = len(self.ui.now_bar) - 1
 
             self.ui.now_image[i].setGeometry(QtCore.QRect(10, 10, 160, 90))
             self.ui.now_image[i].setStyleSheet("background-color : black ;")
@@ -126,11 +136,11 @@ class Kit(QtWidgets.QMainWindow):
 
             self.ui.now_image[i].setObjectName("now_image")
 
-            self.ui.now_bar[i].setGeometry(QtCore.QRect(180, 80, 431, 20))
+            self.ui.now_bar[ni].setGeometry(QtCore.QRect(180, 80, 431, 20))
             font = QtGui.QFont()
             font.setFamily("서울남산체 M")
-            self.ui.now_bar[i].setFont(font)
-            self.ui.now_bar[i].setStyleSheet("QProgressBar {\n"
+            self.ui.now_bar[ni].setFont(font)
+            self.ui.now_bar[ni].setStyleSheet("QProgressBar {\n"
                                              "     border: 2px solid grey;\n"
                                              "     border-radius: 5px;\n"
                                              "     background-color: #FFFFFF;\n"
@@ -141,9 +151,9 @@ class Kit(QtWidgets.QMainWindow):
                                              "     background-color: #A293BD;\n"
                                              "     width: 20px;\n"
                                              " }")
-            self.ui.now_bar[i].setProperty("value", 58)
-            self.ui.now_bar[i].setAlignment(QtCore.Qt.AlignCenter)
-            self.ui.now_bar[i].setObjectName("now_bar")
+            self.ui.now_bar[ni].setProperty("value", 58)
+            self.ui.now_bar[ni].setAlignment(QtCore.Qt.AlignCenter)
+            self.ui.now_bar[ni].setObjectName("now_bar")
 
             self.ui.now_youtube_icon[i] = QtWidgets.QLabel(
                 self.ui.now_panel[i])
@@ -177,12 +187,12 @@ class Kit(QtWidgets.QMainWindow):
             self.ui.now_id[i].setText(downloaddata[i]['url'])
 
             self.ui.now_image[i].raise_()
-            self.ui.now_bar[i].raise_()
+            self.ui.now_bar[ni].raise_()
             self.ui.now_title[i].raise_()
             self.ui.now_id[i].raise_()
             self.ui.now_youtube_icon[i].raise_()
             self.ui.verticalLayout_6.addWidget(self.ui.now_panel[i])
-
+        
 
 
     

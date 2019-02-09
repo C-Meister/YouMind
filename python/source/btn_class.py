@@ -5,11 +5,13 @@ import pyperclip
 import threading
 
 class Btn(QtWidgets.QMainWindow):
-    def btn_add(self,list1, yt):
+    def btn_add(self,list1, yt,ui):
         self.list1 = list1
         self.yt = yt
+        self.ui = ui
 
     def btn_link_event(self):
+        self.ui.stackedWidget.setCurrentIndex(0)
 
         url = pyperclip.paste()
 
@@ -34,7 +36,7 @@ class Btn(QtWidgets.QMainWindow):
         # print('test')
     
     def btn_sub_event(self):
-        pass
+        self.ui.stackedWidget.setCurrentIndex(1)
     
     def Th(self):
         url_list= self.list1.urlbuf
@@ -55,7 +57,6 @@ class Btn(QtWidgets.QMainWindow):
 
     def __init__(self,MainWindow):
         super().__init__()
-
         self.MainWindow = MainWindow 
         MainWindow.btn_link_event = self.btn_link_event
         MainWindow.btn_sub_event = self.btn_sub_event

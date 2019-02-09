@@ -1,3 +1,3 @@
 @echo off
 
-python nativeMessaging.py
+python main.py > pylog.log

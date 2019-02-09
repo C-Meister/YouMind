@@ -152,7 +152,7 @@ class youtube():
                         video_links.append({
                             'url': base_video_url + i['id']['videoId'],
                             'title': i['snippet']['title'],
-                            'thumbnail': i['snippet']['thumbnails']['default']['url']
+                            'thumbnail': i['snippet']['thumbnails']['medium']['url']
                         })
             try:
                 next_page_token = resp['nextPageToken']
@@ -185,7 +185,7 @@ class youtube():
                         video_links.append({
                             'url': base_video_url + i['resourceId']['videoId'],
                             'title': i['title'],
-                            'thumbnail': i['thumbnails']['default']['url']
+                            'thumbnail': i['thumbnails']['medium']['url']
                         })
             try:
                 next_page_token = resp['nextPageToken']
@@ -235,7 +235,7 @@ class youtube():
             if i['kind'] == "youtube#video":
                 if i['snippet']['title'] != "Private video":
                     return [{
-                        "thumbnail": i['snippet']['thumbnails']['default']['url'],
+                        "thumbnail": i['snippet']['thumbnails']['medium']['url'],
                         "title": i['snippet']['title'],
                         "url": url
                     }]
@@ -249,23 +249,7 @@ class youtube():
         pool.map(self.download_video,tuple_list)
         pool.close()
         pool.join()
-    
-    def getInfos(self, url, ext, resl):
-
-        urlList = self.get_videos(url)
-        if urlList is None:
-            return None
-
-        # InfoList = []
-        # print(urlList)
-        pyperclip.copy(str(urlList))
-        # for url in urlList:
-        #     # InfoList.append(self.getInfo(url, ext, resl))
-        #     self.getVideoinfo(url)
-        #     time.sleep(0.01)
-        # return InfoList
-
-        # return InfoList
+        
 
     def getInfo(self, url, ext_filter=None, resl_filter=None):
         print(url)
@@ -351,10 +335,10 @@ class youtube():
 if __name__ == '__main__':
     y = youtube("AIzaSyDFC_QxH093_VthlLPWvC2BmzPP0hhbX9U","C:\\Users\\YASUO\\Videos\\")
     #pp(y.getInfo(pyperclip.paste()))
-    #print(y.getInfos(pyperclip.paste(),"mp4","1280x720"))
+    print(y.getInfos(pyperclip.paste(),"mp4","1280x720"))
 
     #y.zsdf()
     #y.download_video({"url":"https://www.youtube.com/watch?v=1eEcL8XjogE","ext":"mp4","resl":"1280x720"})
     #print(y.get_channel_picture_url("mnetMPD",True))
-    y.subscribe("https://www.youtube.com/channel/UCu9BCtGIEr73LXZsKmoujKw")
-    y.isUploaded()
+    #y.subscribe("https://www.youtube.com/channel/UCu9BCtGIEr73LXZsKmoujKw")
+    #y.isUploaded()

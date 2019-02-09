@@ -11,18 +11,21 @@ API_KEY = "AIzaSyDFC_QxH093_VthlLPWvC2BmzPP0hhbX9U"
 
 
 
+if __name__ == "__main__":
 
-app = QtWidgets.QApplication(sys.argv)
-MainWindow = QtWidgets.QMainWindow()
+	app = QtWidgets.QApplication(sys.argv)
+	MainWindow = QtWidgets.QMainWindow()
 
-MainWindow.show()
+	MainWindow.show()
 
-ui = Ui_MainWindow()
-ui.setupUi(MainWindow)
+	ui = Ui_MainWindow()
+	ui.setupUi(MainWindow)
 
-yt = youtube(API_KEY)
+	yt = youtube(API_KEY)
 
-list1 = Kit(ui)
-list1.add_download_list(downloaddata)
+	
 
-app.exec_()
+	list1 = Kit(ui)
+	list1.add_download_list(yt.get_videos('https://www.youtube.com/channel/UCMRdlwfhLECvQw0FN0s_csg'))
+
+	app.exec_()

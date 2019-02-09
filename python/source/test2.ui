@@ -1,0 +1,1480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1280</width>
+    <height>720</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QStackedWidget" name="stackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>74</x>
+      <y>0</y>
+      <width>561</width>
+      <height>721</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>441</width>
+      <height>721</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color : rgb(242,242,242);</string>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="page_link">
+     <widget class="QPushButton" name="btn_link_download">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>680</y>
+        <width>171</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>다운로드</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="combo_link_format">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>680</y>
+        <width>176</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>동영상 - MP4</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>음악 - MP3</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>음악 - OGG</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>장민석 - 신상호</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QPushButton" name="btn_link_file">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>640</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{image:url(./image/folder1.png); border:0px; background-color : rgba(0,0,0,0);}
+QPushButton:hover{image:url(./image/folder2.png); border:0px;background-color : rgba(0,0,0,0);}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>640</y>
+        <width>501</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color : white; border:0px;</string>
+      </property>
+      <property name="text">
+       <string>C:\Windows\System32\cmd.exe</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="combo_link_format_2">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>680</y>
+        <width>171</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>1080p - 17.75MB</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>720p - 17.75MB</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>480p 60ps - 12.5MB</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>장민석 - 신상호</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QScrollArea" name="panel_link">
+      <property name="geometry">
+       <rect>
+        <x>-10</x>
+        <y>70</y>
+        <width>561</width>
+        <height>561</height>
+       </rect>
+      </property>
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+      </property>
+      <widget class="QWidget" name="layout_link_data">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>559</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_7">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="sizeConstraint">
+         <enum>QLayout::SetDefaultConstraint</enum>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QLabel" name="asdf_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>10</y>
+        <width>551</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>재생목록 / 동영상 선택</string>
+      </property>
+     </widget>
+     <zorder>btn_link_download</zorder>
+     <zorder>combo_link_format</zorder>
+     <zorder>btn_link_file</zorder>
+     <zorder>btn_link</zorder>
+     <zorder>lineEdit_2</zorder>
+     <zorder>combo_link_format_2</zorder>
+     <zorder>panel_link</zorder>
+     <zorder>asdf_2</zorder>
+     <zorder>verticalLayoutWidget</zorder>
+    </widget>
+    <widget class="QWidget" name="page_3">
+     <widget class="QScrollArea" name="scrollArea_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>60</y>
+        <width>411</width>
+        <height>651</height>
+       </rect>
+      </property>
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents_2">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>392</width>
+         <height>966</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <widget class="QWidget" name="widget_12" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>100</height>
+           </size>
+          </property>
+          <widget class="QLabel" name="label_60">
+           <property name="geometry">
+            <rect>
+             <x>90</x>
+             <y>10</y>
+             <width>231</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>채널이름</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_61">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>10</y>
+             <width>80</width>
+             <height>80</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color : black ;</string>
+           </property>
+           <property name="text">
+            <string>썸네일ㄴㅇㄹㄴㅇㄹㄴㅇㄹ</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_62">
+           <property name="geometry">
+            <rect>
+             <x>90</x>
+             <y>50</y>
+             <width>241</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>채널 구독자</string>
+           </property>
+          </widget>
+          <widget class="QProgressBar" name="progressBar_15">
+           <property name="geometry">
+            <rect>
+             <x>90</x>
+             <y>70</y>
+             <width>291</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+           <property name="value">
+            <number>44</number>
+           </property>
+           <property name="format">
+            <string>%p%</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_63">
+           <property name="geometry">
+            <rect>
+             <x>320</x>
+             <y>10</y>
+             <width>61</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>1/10</string>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="widget_11" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>100</height>
+           </size>
+          </property>
+          <widget class="QLabel" name="label_56">
+           <property name="geometry">
+            <rect>
+             <x>90</x>
+             <y>10</y>
+             <width>231</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>나중에 동적생성할거임 일단 테스트 ㅇㅅㅇ</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_57">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>10</y>
+             <width>80</width>
+             <height>80</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color : black ;</string>
+           </property>
+           <property name="text">
+            <string>썸네일ㄴㅇㄹㄴㅇㄹㄴㅇㄹ</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_58">
+           <property name="geometry">
+            <rect>
+             <x>90</x>
+             <y>50</y>
+             <width>241</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>채널 구독자</string>
+           </property>
+          </widget>
+          <widget class="QProgressBar" name="progressBar_14">
+           <property name="geometry">
+            <rect>
+             <x>90</x>
+             <y>70</y>
+             <width>291</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+           <property name="value">
+            <number>44</number>
+           </property>
+           <property name="format">
+            <string>%p%</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_59">
+           <property name="geometry">
+            <rect>
+             <x>320</x>
+             <y>10</y>
+             <width>61</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>1/10</string>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="widget_9" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>100</height>
+           </size>
+          </property>
+          <widget class="QLabel" name="label_44">
+           <property name="geometry">
+            <rect>
+             <x>90</x>
+             <y>10</y>
+             <width>231</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>채널이름</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_45">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>10</y>
+             <width>80</width>
+             <height>80</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color : black ;</string>
+           </property>
+           <property name="text">
+            <string>썸네일ㄴㅇㄹㄴㅇㄹㄴㅇㄹ</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_46">
+           <property name="geometry">
+            <rect>
+             <x>90</x>
+             <y>50</y>
+             <width>241</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>채널 구독자</string>
+           </property>
+          </widget>
+          <widget class="QProgressBar" name="progressBar_11">
+           <property name="geometry">
+            <rect>
+             <x>90</x>
+             <y>70</y>
+             <width>291</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+           <property name="value">
+            <number>44</number>
+           </property>
+           <property name="format">
+            <string>%p%</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_47">
+           <property name="geometry">
+            <rect>
+             <x>320</x>
+             <y>10</y>
+             <width>61</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>1/10</string>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="widget_8" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>100</height>
+           </size>
+          </property>
+          <widget class="QLabel" name="label_40">
+           <property name="geometry">
+            <rect>
+             <x>90</x>
+             <y>10</y>
+             <width>231</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>채널이름</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_41">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>10</y>
+             <width>80</width>
+             <height>80</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color : black ;</string>
+           </property>
+           <property name="text">
+            <string>썸네일ㄴㅇㄹㄴㅇㄹㄴㅇㄹ</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_42">
+           <property name="geometry">
+            <rect>
+             <x>90</x>
+             <y>50</y>
+             <width>241</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>채널 구독자</string>
+           </property>
+          </widget>
+          <widget class="QProgressBar" name="progressBar_10">
+           <property name="geometry">
+            <rect>
+             <x>90</x>
+             <y>70</y>
+             <width>291</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+           <property name="value">
+            <number>44</number>
+           </property>
+           <property name="format">
+            <string>%p%</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_43">
+           <property name="geometry">
+            <rect>
+             <x>320</x>
+             <y>10</y>
+             <width>61</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>1/10</string>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="widget_10" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>100</height>
+           </size>
+          </property>
+          <widget class="QLabel" name="label_52">
+           <property name="geometry">
+            <rect>
+             <x>90</x>
+             <y>10</y>
+             <width>231</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>채널이름</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_53">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>10</y>
+             <width>80</width>
+             <height>80</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color : black ;</string>
+           </property>
+           <property name="text">
+            <string>썸네일ㄴㅇㄹㄴㅇㄹㄴㅇㄹ</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_54">
+           <property name="geometry">
+            <rect>
+             <x>90</x>
+             <y>50</y>
+             <width>241</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>채널 구독자</string>
+           </property>
+          </widget>
+          <widget class="QProgressBar" name="progressBar_13">
+           <property name="geometry">
+            <rect>
+             <x>90</x>
+             <y>70</y>
+             <width>291</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+           <property name="value">
+            <number>44</number>
+           </property>
+           <property name="format">
+            <string>%p%</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_55">
+           <property name="geometry">
+            <rect>
+             <x>320</x>
+             <y>10</y>
+             <width>61</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>1/10</string>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="widget_6" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>100</height>
+           </size>
+          </property>
+          <widget class="QLabel" name="label_36">
+           <property name="geometry">
+            <rect>
+             <x>90</x>
+             <y>10</y>
+             <width>231</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>채널이름</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_37">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>10</y>
+             <width>80</width>
+             <height>80</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color : black ;</string>
+           </property>
+           <property name="text">
+            <string>썸네일ㄴㅇㄹㄴㅇㄹㄴㅇㄹ</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_38">
+           <property name="geometry">
+            <rect>
+             <x>90</x>
+             <y>50</y>
+             <width>241</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>채널 구독자</string>
+           </property>
+          </widget>
+          <widget class="QProgressBar" name="progressBar_9">
+           <property name="geometry">
+            <rect>
+             <x>90</x>
+             <y>70</y>
+             <width>291</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+           <property name="value">
+            <number>44</number>
+           </property>
+           <property name="format">
+            <string>%p%</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_39">
+           <property name="geometry">
+            <rect>
+             <x>320</x>
+             <y>10</y>
+             <width>61</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>1/10</string>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="widget_5" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>100</height>
+           </size>
+          </property>
+          <widget class="QLabel" name="label_28">
+           <property name="geometry">
+            <rect>
+             <x>90</x>
+             <y>10</y>
+             <width>231</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>채널이름</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_29">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>10</y>
+             <width>80</width>
+             <height>80</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color : black ;</string>
+           </property>
+           <property name="text">
+            <string>썸네일ㄴㅇㄹㄴㅇㄹㄴㅇㄹ</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_30">
+           <property name="geometry">
+            <rect>
+             <x>90</x>
+             <y>50</y>
+             <width>241</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>채널 구독자</string>
+           </property>
+          </widget>
+          <widget class="QProgressBar" name="progressBar_7">
+           <property name="geometry">
+            <rect>
+             <x>90</x>
+             <y>70</y>
+             <width>291</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+           <property name="value">
+            <number>44</number>
+           </property>
+           <property name="format">
+            <string>%p%</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_31">
+           <property name="geometry">
+            <rect>
+             <x>320</x>
+             <y>10</y>
+             <width>61</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>1/10</string>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="widget_4" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>100</height>
+           </size>
+          </property>
+          <widget class="QLabel" name="label_20">
+           <property name="geometry">
+            <rect>
+             <x>90</x>
+             <y>10</y>
+             <width>231</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>채널이름</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_21">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>10</y>
+             <width>80</width>
+             <height>80</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color : black ;</string>
+           </property>
+           <property name="text">
+            <string>썸네일ㄴㅇㄹㄴㅇㄹㄴㅇㄹ</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_22">
+           <property name="geometry">
+            <rect>
+             <x>90</x>
+             <y>50</y>
+             <width>241</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>채널 구독자</string>
+           </property>
+          </widget>
+          <widget class="QProgressBar" name="progressBar_5">
+           <property name="geometry">
+            <rect>
+             <x>90</x>
+             <y>70</y>
+             <width>291</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+           <property name="value">
+            <number>44</number>
+           </property>
+           <property name="format">
+            <string>%p%</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_23">
+           <property name="geometry">
+            <rect>
+             <x>320</x>
+             <y>10</y>
+             <width>61</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>1/10</string>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="widget_7" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>100</height>
+           </size>
+          </property>
+          <widget class="QLabel" name="label_32">
+           <property name="geometry">
+            <rect>
+             <x>90</x>
+             <y>10</y>
+             <width>231</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>채널이름</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_33">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>10</y>
+             <width>80</width>
+             <height>80</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color : black ;</string>
+           </property>
+           <property name="text">
+            <string>썸네일ㄴㅇㄹㄴㅇㄹㄴㅇㄹ</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_34">
+           <property name="geometry">
+            <rect>
+             <x>90</x>
+             <y>50</y>
+             <width>241</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>채널 구독자</string>
+           </property>
+          </widget>
+          <widget class="QProgressBar" name="progressBar_8">
+           <property name="geometry">
+            <rect>
+             <x>90</x>
+             <y>70</y>
+             <width>291</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+           <property name="value">
+            <number>44</number>
+           </property>
+           <property name="format">
+            <string>%p%</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_35">
+           <property name="geometry">
+            <rect>
+             <x>340</x>
+             <y>10</y>
+             <width>61</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>1/10</string>
+           </property>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QLabel" name="label_4">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>10</y>
+        <width>341</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>구도곡ㄷ고독도곧고</string>
+      </property>
+     </widget>
+     <zorder>scrollArea</zorder>
+     <zorder>scrollArea_2</zorder>
+     <zorder>label_4</zorder>
+    </widget>
+    <widget class="QWidget" name="page_2">
+     <widget class="QScrollArea" name="scrollArea_3">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>40</y>
+        <width>411</width>
+        <height>651</height>
+       </rect>
+      </property>
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents_3">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>409</width>
+         <height>649</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_5">
+        <item>
+         <widget class="QLineEdit" name="lineEdit">
+          <property name="text">
+           <string>재생목록은 일단 나중에 할게</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="widget_17" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>71</width>
+      <height>721</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color(237,237,245);</string>
+    </property>
+    <widget class="QWidget" name="verticalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>71</width>
+       <height>711</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <property name="sizeConstraint">
+       <enum>QLayout::SetMaximumSize</enum>
+      </property>
+      <property name="topMargin">
+       <number>5</number>
+      </property>
+      <item>
+       <widget class="QPushButton" name="btn_link">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>50</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{image:url(./image/link1.png); border:0px; background-color : rgba(0,0,0,0);}
+QPushButton:hover{image:url(./image/link2.png); border:0px;background-color : rgba(0,0,0,0);}
+QPushButton:checked{image:url(./image/link2.png); border:0px;background-color : rgba(0,0,0,0);}</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_sub">
+        <property name="minimumSize">
+         <size>
+          <width>50</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="contextMenuPolicy">
+         <enum>Qt::DefaultContextMenu</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{image:url(./image/sub1.png); border:0px; background-color : rgba(0,0,0,0);}
+QPushButton:hover{image:url(./image/sub2.png); border:0px;background-color : rgba(0,0,0,0);}
+QPushButton:checked{image:url(./image/sub2.png); border:0px;background-color : rgba(0,0,0,0);}</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_3">
+        <property name="minimumSize">
+         <size>
+          <width>50</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="text">
+         <string>예비1</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_4">
+        <property name="minimumSize">
+         <size>
+          <width>50</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="text">
+         <string>예비2</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_5">
+        <property name="minimumSize">
+         <size>
+          <width>50</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="text">
+         <string>예비3</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="widget_18" native="true">
+    <property name="geometry">
+     <rect>
+      <x>639</x>
+      <y>-1</y>
+      <width>641</width>
+      <height>721</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color : rgb(245,245,245);</string>
+    </property>
+    <widget class="QLabel" name="asdf">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>621</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>현재다운로드 목록</string>
+     </property>
+    </widget>
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>70</y>
+       <width>641</width>
+       <height>641</height>
+      </rect>
+     </property>
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>639</width>
+        <height>120</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QWidget" name="widget_2" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>120</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>120</height>
+          </size>
+         </property>
+         <widget class="QLabel" name="label_11">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>160</width>
+            <height>90</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color : black ;</string>
+          </property>
+          <property name="text">
+           <string>썸네일ㄴㅇㄹㄴㅇㄹㄴㅇㄹ</string>
+          </property>
+         </widget>
+         <widget class="QProgressBar" name="progressBar_2">
+          <property name="geometry">
+           <rect>
+            <x>180</x>
+            <y>80</y>
+            <width>431</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>서울남산체 M</family>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QProgressBar {
+     border: 2px solid grey;
+     border-radius: 5px;
+     background-color: #FFFFFF;
+	 text-color : rgb(128,128,128);
+}
+
+ QProgressBar::chunk {
+     background-color: #A293BD;
+     width: 20px;
+ }</string>
+          </property>
+          <property name="value">
+           <number>58</number>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="format">
+           <string>%p%</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="linked_youtube_icon_6">
+          <property name="geometry">
+           <rect>
+            <x>180</x>
+            <y>55</y>
+            <width>21</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">image:url(./image/sub1.png);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="linked_title_6">
+          <property name="geometry">
+           <rect>
+            <x>178</x>
+            <y>10</y>
+            <width>421</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>서울남산체 EB</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>'사탄 : 아 이건 좀;;, 사탄 드립'은 어디서 나온 말일까?ㄴㅇㄹㄴㅇㄹㄴㅇㄹ</string>
+          </property>
+          <property name="scaledContents">
+           <bool>false</bool>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QLabel" name="linked_id_6">
+          <property name="geometry">
+           <rect>
+            <x>208</x>
+            <y>55</y>
+            <width>351</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>서울남산체 M</family>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>https://www.youtube.com/watch?v=P9J87Bxdtg8</string>
+          </property>
+         </widget>
+         <zorder>label_11</zorder>
+         <zorder>progressBar_2</zorder>
+         <zorder>linked_title_6</zorder>
+         <zorder>linked_id_6</zorder>
+         <zorder>linked_youtube_icon_6</zorder>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </widget>
+   <zorder>stackedWidget</zorder>
+   <zorder>widget_9</zorder>
+   <zorder>widget_9</zorder>
+   <zorder>widget_17</zorder>
+   <zorder>widget_18</zorder>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+ <slots>
+  <slot>btn_link_event()</slot>
+ </slots>
+</ui>

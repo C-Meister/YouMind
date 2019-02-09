@@ -20,9 +20,9 @@
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>64</x>
+      <x>74</x>
       <y>0</y>
-      <width>491</width>
+      <width>561</width>
       <height>721</height>
      </rect>
     </property>
@@ -32,84 +32,20 @@
       <height>721</height>
      </size>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color : rgb(242,242,242);</string>
+    </property>
     <property name="currentIndex">
      <number>0</number>
     </property>
     <widget class="QWidget" name="page_link">
-     <widget class="QLabel" name="lbl_link_image">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>10</y>
-        <width>160</width>
-        <height>90</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color : black ;</string>
-      </property>
-      <property name="text">
-       <string>썸네일ㄴㅇㄹㄴㅇㄹㄴㅇㄹ</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="lbl_link_title">
-      <property name="geometry">
-       <rect>
-        <x>190</x>
-        <y>10</y>
-        <width>281</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>서울남산체 EB</family>
-        <pointsize>16</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>히트마인드 플레이</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="lbl_link_len">
-      <property name="geometry">
-       <rect>
-        <x>220</x>
-        <y>47</y>
-        <width>191</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>58:82:45</string>
-      </property>
-     </widget>
-     <widget class="QCommandLinkButton" name="btn_link_url">
-      <property name="geometry">
-       <rect>
-        <x>190</x>
-        <y>60</y>
-        <width>281</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>qSHqz_0AofU</string>
-      </property>
-      <property name="checkable">
-       <bool>false</bool>
-      </property>
-      <property name="description">
-       <string/>
-      </property>
-     </widget>
      <widget class="QPushButton" name="btn_link_download">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>190</y>
-        <width>421</width>
-        <height>41</height>
+        <x>380</x>
+        <y>680</y>
+        <width>171</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="text">
@@ -119,9 +55,9 @@
      <widget class="QComboBox" name="combo_link_format">
       <property name="geometry">
        <rect>
-        <x>260</x>
-        <y>250</y>
-        <width>181</width>
+        <x>10</x>
+        <y>680</y>
+        <width>176</width>
         <height>31</height>
        </rect>
       </property>
@@ -146,81 +82,131 @@
        </property>
       </item>
      </widget>
-     <widget class="QTextEdit" name="text_link_filelink">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>150</y>
-        <width>321</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="html">
-       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Gulim'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;파일링크&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
      <widget class="QPushButton" name="btn_link_file">
       <property name="geometry">
        <rect>
-        <x>340</x>
-        <y>150</y>
-        <width>101</width>
+        <x>520</x>
+        <y>640</y>
+        <width>31</width>
         <height>31</height>
        </rect>
       </property>
-      <property name="text">
-       <string>파일탐색기</string>
-      </property>
-     </widget>
-     <widget class="QTextEdit" name="textEdit_2">
-      <property name="geometry">
-       <rect>
-        <x>40</x>
-        <y>300</y>
-        <width>401</width>
-        <height>411</height>
-       </rect>
-      </property>
-      <property name="html">
-       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Gulim'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;화질, 용량 동적생성 나중에&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label">
-      <property name="geometry">
-       <rect>
-        <x>190</x>
-        <y>45</y>
-        <width>21</width>
-        <height>21</height>
-       </rect>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
       </property>
       <property name="styleSheet">
-       <string notr="true">image:url(./image/time.png);</string>
+       <string notr="true">QPushButton{image:url(./image/folder1.png); border:0px; background-color : rgba(0,0,0,0);}
+QPushButton:hover{image:url(./image/folder2.png); border:0px;background-color : rgba(0,0,0,0);}</string>
       </property>
       <property name="text">
        <string/>
       </property>
      </widget>
-     <zorder>lbl_link_image</zorder>
-     <zorder>lbl_link_title</zorder>
-     <zorder>lbl_link_len</zorder>
-     <zorder>btn_link_url</zorder>
+     <widget class="QLineEdit" name="lineEdit_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>640</y>
+        <width>501</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color : white; border:0px;</string>
+      </property>
+      <property name="text">
+       <string>C:\Windows\System32\cmd.exe</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="combo_link_format_2">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>680</y>
+        <width>171</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>1080p - 17.75MB</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>720p - 17.75MB</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>480p 60ps - 12.5MB</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>장민석 - 신상호</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QScrollArea" name="panel_link">
+      <property name="geometry">
+       <rect>
+        <x>-10</x>
+        <y>20</y>
+        <width>561</width>
+        <height>591</height>
+       </rect>
+      </property>
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+      </property>
+      <widget class="QWidget" name="layout_link_data">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>559</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_7">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="sizeConstraint">
+         <enum>QLayout::SetDefaultConstraint</enum>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+       </layout>
+      </widget>
+     </widget>
      <zorder>btn_link_download</zorder>
      <zorder>combo_link_format</zorder>
-     <zorder>text_link_filelink</zorder>
      <zorder>btn_link_file</zorder>
-     <zorder>textEdit_2</zorder>
      <zorder>btn_link</zorder>
-     <zorder>label</zorder>
+     <zorder>lineEdit_2</zorder>
+     <zorder>combo_link_format_2</zorder>
+     <zorder>panel_link</zorder>
     </widget>
     <widget class="QWidget" name="page_3">
      <widget class="QScrollArea" name="scrollArea_2">
@@ -1113,9 +1099,9 @@ p, li { white-space: pre-wrap; }
    <widget class="QScrollArea" name="scrollArea">
     <property name="geometry">
      <rect>
-      <x>550</x>
+      <x>640</x>
       <y>70</y>
-      <width>731</width>
+      <width>641</width>
       <height>651</height>
      </rect>
     </property>
@@ -1127,7 +1113,7 @@ p, li { white-space: pre-wrap; }
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>712</width>
+       <width>622</width>
        <height>894</height>
       </rect>
      </property>
@@ -1726,9 +1712,9 @@ p, li { white-space: pre-wrap; }
    <widget class="QLabel" name="asdf">
     <property name="geometry">
      <rect>
-      <x>560</x>
+      <x>650</x>
       <y>10</y>
-      <width>711</width>
+      <width>621</width>
       <height>51</height>
      </rect>
     </property>
@@ -1742,7 +1728,7 @@ p, li { white-space: pre-wrap; }
       <x>0</x>
       <y>10</y>
       <width>71</width>
-      <height>291</height>
+      <height>302</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">

@@ -58,8 +58,11 @@ class Btn(QtWidgets.QMainWindow):
         self.list1.clear_download_list()
 
     def btn_file_chooser_event(self):
+        file = str(QtWidgets.QFileDialog.getExistingDirectory(self, "Select Directory"))
+        if file is not "":
+            self.ui.lineEdit_2.setText(file + "/")
+            self.yt.DOWNLOAD_PATH = file + "/"
 
-        pass
 
 
     def __init__(self,MainWindow):

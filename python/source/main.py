@@ -4,6 +4,7 @@ from Ui_test2 import *
 from kit_class import *
 from btn_class import *
 from youtube import *
+from os.path import expanduser
 import threading
 import nativemessaging
 
@@ -61,12 +62,15 @@ if __name__ == "__main__":
 
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    yt = youtube(API_KEY, "E:\\videos\\")
+    defaultDir = expanduser("~") + "\\Videos"
+    defaultDir = defaultDir.replace("\\", "/") + '/'
+    yt = youtube(API_KEY, "")
     btn = Btn(MainWindow)
     MainWindow.show()
     ui = Ui_MainWindow()
     # ui.combo_link_format.setaddItems()
     ui.setupUi(MainWindow)
+    ui.lineEdit_2.setText(defaultDir)
     list1 = Kit(ui)
     signal = Signal()
     signal.signal.connect(signal.onMessaged)

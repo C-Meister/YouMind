@@ -14,6 +14,10 @@ function check_youtube_link(url) {
     btn_download.setAttribute("uk-tooltip", "youtube 링크를 입력해 주세요");
   }
 }
+btn_download.onclick = e => {
+  window.open("file://C:/Windows/notepad.exe");
+};
+
 function getYoutubeData(url) {
   const Url = new URL(url);
   const list = Url.searchParams.get("list");

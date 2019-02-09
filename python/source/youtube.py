@@ -4,6 +4,7 @@ import pafy
 import urllib
 import pyperclip
 import time
+import nativemessaging
 from pprint import pprint as pp
 import simplejson as json
 from time import sleep
@@ -24,7 +25,7 @@ class youtube():
     USER = 5
     OTHERS = 6
 
-    API_KEY =""
+    API_KEY = ""
     DOWNLOAD_PATH = ""
 
     LAST_UPLOAD_URL = None
@@ -80,6 +81,7 @@ class youtube():
 
     def change_path(self,path):
         self.DOWNLOAD_PATH = path
+
     def get_urltype(self, url):
         splited = url.split('www.youtube.com/')
         if len(splited) != 2:
@@ -183,7 +185,7 @@ class youtube():
                         video_links.append({
                             'url': base_video_url + i['id']['videoId'],
                             'title': i['snippet']['title'],
-                            'thumbnail': i['snippet']['thumbnails']['default']['url']
+                            'thumbnail': i['snippet']['thumbnails']['medium']['url']
                         })
             try:
                 next_page_token = resp['nextPageToken']
@@ -216,7 +218,7 @@ class youtube():
                         video_links.append({
                             'url': base_video_url + i['resourceId']['videoId'],
                             'title': i['title'],
-                            'thumbnail': i['thumbnails']['default']['url']
+                            'thumbnail': i['thumbnails']['medium']['url']
                         })
             try:
                 next_page_token = resp['nextPageToken']
@@ -225,12 +227,13 @@ class youtube():
                 break
             time.sleep(0.1)
         return video_links
-    def get_possible_fn(self,title, ext):
-        fn= title+"."+ext
+
+    def get_possible_fn(self, title, ext):
+        fn = title+"."+ext
         idx = 2
         while Path(fn).exists():
-            fn= title +" ({}).".format(idx)+ext
-            idx+=1
+            fn = title + " ({}).".format(idx)+ext
+            idx += 1
         return fn
 
     def download_video(self, download_dict ):
@@ -266,7 +269,7 @@ class youtube():
             if i['kind'] == "youtube#video":
                 if i['snippet']['title'] != "Private video":
                     return [{
-                        "thumbnail": i['snippet']['thumbnails']['default']['url'],
+                        "thumbnail": i['snippet']['thumbnails']['medium']['url'],
                         "title": i['snippet']['title'],
                         "url": url
                     }]
@@ -280,23 +283,7 @@ class youtube():
         pool.map(self.download_video,tuple_list)
         pool.close()
         pool.join()
-    
-    def getInfos(self, url, ext, resl):
-
-        urlList = self.get_videos(url)
-        if urlList is None:
-            return None
-
-        # InfoList = []
-        # print(urlList)
-        pyperclip.copy(str(urlList))
-        # for url in urlList:
-        #     # InfoList.append(self.getInfo(url, ext, resl))
-        #     self.getVideoinfo(url)
-        #     time.sleep(0.01)
-        # return InfoList
-
-        # return InfoList
+        
 
     def getInfo(self, url, ext_filter=None, resl_filter=None):
         print(url)
@@ -382,7 +369,7 @@ class youtube():
 if __name__ == '__main__':
     y = youtube("AIzaSyCF2cbRoztUBws-HQsyF7I-x0OVM7KbhP4","C:\\Users\\YASUO\\Videos\\")
     #pp(y.getInfo(pyperclip.paste()))
-    #print(y.getInfos(pyperclip.paste(),"mp4","1280x720"))
+    print(y.getInfos(pyperclip.paste(),"mp4","1280x720"))
 
     #y.zsdf()
     #y.download_video({"url":"https://www.youtube.com/watch?v=1eEcL8XjogE","ext":"mp4","resl":"1280x720"})

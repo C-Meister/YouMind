@@ -70,5 +70,3 @@ class Kit(QtWidgets.QMainWindow):
             self.ui.linked_id[i].setObjectName("linked_id")
             self.ui.linked_id[i].setText(downloaddata[i]['url'])
             self.ui.verticalLayout_7.addWidget(self.ui.linked_p[i])
-
-    

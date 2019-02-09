@@ -8,6 +8,7 @@ from pprint import pprint as pp
 import simplejson as json
 from time import sleep
 from pathlib import Path
+from multiprocessing import Pool
 
 
 class youtube():
@@ -18,15 +19,45 @@ class youtube():
     WATCH_AND_PLAYLIST = 3
     CHANNEL = 4
 
+
     USER = 5
     OTHERS = 6
 
     API_KEY =""
     DOWNLOAD_PATH = ""
 
+    LAST_UPLOAD_URL = None
+    SUBSCRIBED_ID = None
+    SUBSCRIBED_forUser = None
+
     def __init__(self, key, path=None):
         self.API_KEY = key
         self.DOWNLOAD_PATH = path
+        f = open("subscribed.txt","r")
+        url = f.readline()
+        f.close()
+        self.subscribe(url)
+    def subscribe(self, url):
+        print("subscribing:",url)
+        flag = self.SUBSCRIBED_ID is None
+        urltype = self.get_urltype(url)
+        f= open("subscribed.txt","w")
+        f.write(url)
+        f.close()
+        if urltype == self.CHANNEL:
+            id = url[url.find("channel/")+len("channel/"):].split('/')[0]
+            self.LAST_UPLOAD_URL= None
+            self.SUBSCRIBED_ID = id
+            self.SUBSCRIBED_forUser = False
+        elif urltype == self.USER:
+            id = url[url.find("channel/")+len("user/"):].split('/')[0]
+            self.LAST_UPLOAD_URL= None
+            self.SUBSCRIBED_ID = id
+            self.SUBSCRIBED_forUser = True
+        if flag:
+            #thread 실행하세요
+            pass
+
     def change_path(self,path):
         self.DOWNLOAD_PATH = path
     def get_urltype(self, url):
@@ -76,6 +107,27 @@ class youtube():
 
         # except:
         #     return None
+        
+    def isUploaded(self):
+        
+        base_video_url = 'https://www.youtube.com/watch?v='
+        base_search_url = 'https://www.googleapis.com/youtube/v3/search?'
+
+        first_url = base_search_url + \
+            'key={}&part=snippet,id&order=date&maxResults=1'.format(
+                self.API_KEY)
+        first_url += '&channelId=' + \
+            self.SUBSCRIBED_ID if self.SUBSCRIBED_forUser is False else '&forUsername=' + self.SUBSCRIBED_ID
+        url = first_url
+        inp = urllib.request.urlopen(url)
+        resp = json.load(inp)
+        current_url  = base_video_url+resp['items'][0]['id']['videoId']
+        if self.LAST_UPLOAD_URL is None:
+            self.LAST_UPLOAD_URL = current_url
+        elif self.LAST_UPLOAD_URL != current_url:
+            self.LAST_UPLOAD_URL = base_video_url+resp['items'][0]['id']['videoId']
+        
+
     def get_videos_in_channel(self, channel_id, forUsername=False):
 
         base_video_url = 'https://www.youtube.com/watch?v='
@@ -150,20 +202,23 @@ class youtube():
             idx+=1
         return fn
 
-    def download_video(self, url, ext_filter=None, resl_filter=None, cb=None):
+    def download_video(self, download_dict ):
+        url = download_dict['url']  
+        ext_filter = download_dict['ext']
+        resl_filter= download_dict['resl'] if 'resl' in download_dict else None
+        cb=download_dict['cb'] if 'cb' in download_dict else None
         print(url)
-
         ytube_video = pafy.new(url)
-        if ext_filter is not None and resl_filter is not None:
+        if resl_filter is not None:
             for s in ytube_video.streams:
                 ext = s.extension
                 if ext == ext_filter and s.resolution == resl_filter:
+                    print(s.url)
                     s.download(filepath=self.get_possible_fn(self.DOWNLOAD_PATH+ytube_video.title,ext),callback=cb)
                     return
 
-            ytube_best = ytube_video.getbest(preftype=ext_filter)
-            ytube_best.download(filepath=self.get_possible_fn(self.DOWNLOAD_PATH+ytube_best.title,ytube_best.extension),callback=cb)
-            return
+        ytube_best = ytube_video.getbest(preftype=ext_filter)
+        ytube_best.download(filepath=self.get_possible_fn(self.DOWNLOAD_PATH+ytube_best.title,ytube_best.extension),callback=cb)
         return
 
     def getVideoId(self, url):
@@ -185,14 +240,16 @@ class youtube():
                         "url": url
                     }]
         return None
-
-
             
-
-    def round_robin_download(self,url_list,threadCount = 4):
-        pass
-
-
+    
+    def round_robin_download(self,video_list,ext, resl=None, cb=None,threadCount = 4):
+        pool = Pool(threadCount)
+        tuple_list = [{"url":video['url'],"ext":ext,"resl":resl,"cb":cb} for video in video_list]
+        print(tuple_list)
+        pool.map(self.download_video,tuple_list)
+        pool.close()
+        pool.join()
+    
     def getInfos(self, url, ext, resl):
 
         urlList = self.get_videos(url)
@@ -218,12 +275,17 @@ class youtube():
         resp = json.load(inp)
         img_url = resp['items'][0]['snippet']['thumbnails']['default']['url']
         return img_url
+    def zsdf(self):
+        y.round_robin_download(y.get_videos("https://www.youtube.com/channel/UCGR-u2P38jfdOrO495kqVaw/videos?view=0&flow=grid"),"mp4","480x360")
     
 
+if __name__ == '__main__':
+    y = youtube("AIzaSyDFC_QxH093_VthlLPWvC2BmzPP0hhbX9U","C:\\Users\\YASUO\\Videos\\")
+    #pp(y.getInfo(pyperclip.paste()))
+    #print(y.getInfos(pyperclip.paste(),"mp4","1280x720"))
 
-y = youtube("AIzaSyCZsObQQAM1CWOzhjM6Ezevhr3mq9ueoag","C:\\Users\\YASUO\\Videos\\")
-#pp(y.getInfo(pyperclip.paste()))
-#print(y.getInfos(pyperclip.paste(),"mp4","1280x720"))
-#print(y.get_videos_in_channel("bjummma",True))
-y.download_video("https://www.youtube.com/watch?v=NZvqWmBJLP8",ext_filter="mp4",resl_filter="1280x720")
-#print(y.get_channel_picture_url("mnetMPD",True))
+    #y.zsdf()
+    #y.download_video({"url":"https://www.youtube.com/watch?v=1eEcL8XjogE","ext":"mp4","resl":"1280x720"})
+    #print(y.get_channel_picture_url("mnetMPD",True))
+    y.subscribe("https://www.youtube.com/channel/UCu9BCtGIEr73LXZsKmoujKw")
+    y.isUploaded()

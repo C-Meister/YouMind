@@ -355,13 +355,14 @@ class youtube():
 
 
     def get_channel_picture_url(self, id, forUsername=False):
-        url = "https://www.googleapis.com/youtube/v3/channels?part=snippet&fields=items%2Fsnippet%2Fthumbnails%2Fdefault&key={}".format(
+        url = "https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&key={}".format(
             self.API_KEY)
         url += "&forUsername=" + id if forUsername is True else "&id="+id
+        print("url:",url)
         inp = urllib.request.urlopen(url)
         resp = json.load(inp)
         img_url = resp['items'][0]['snippet']['thumbnails']['default']['url']
-        return img_url
+        return {"url":img_url,"title":resp['items'][0]['snippet']['title'],"subscriberCount":resp['items'][0]['statistics']['subscriberCount']}
     def zsdf(self):
         y.round_robin_download(y.get_videos("https://www.youtube.com/channel/UCGR-u2P38jfdOrO495kqVaw/videos?view=0&flow=grid"),"mp4","480x360")
     
@@ -369,11 +370,10 @@ class youtube():
 if __name__ == '__main__':
     y = youtube("AIzaSyCF2cbRoztUBws-HQsyF7I-x0OVM7KbhP4","C:\\Users\\YASUO\\Videos\\")
     #pp(y.getInfo(pyperclip.paste()))
-    print(y.getInfos(pyperclip.paste(),"mp4","1280x720"))
-
+    
     #y.zsdf()
     #y.download_video({"url":"https://www.youtube.com/watch?v=1eEcL8XjogE","ext":"mp4","resl":"1280x720"})
-    #print(y.get_channel_picture_url("mnetMPD",True))
+    print(y.get_channel_picture_url("mnetMPD",True))
     #y.subscribe("https://www.youtube.com/channel/UCu9BCtGIEr73LXZsKmoujKw","")
     # while True:
     #     pass

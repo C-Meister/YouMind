@@ -20,11 +20,6 @@ class Signal(QObject):
         list1.add_download_list(yt.get_videos(message))
         MainWindow.show()
 
-	app = QtWidgets.QApplication(sys.argv)
-	MainWindow = QtWidgets.QMainWindow()
-	yt = youtube(API_KEY,"C:\\Users\\ShinSH\\Desktop\\test\\")
-	btn = Btn(MainWindow)
-	MainWindow.show()
 
 def th():
     while True:
@@ -51,7 +46,7 @@ if __name__ == "__main__":
     signal.signal.connect(signal.onMessaged)
     # signal.signal.emit("https://www.youtube.com/watch?v=pQAaTEItkB0")
     # list1.add_download_list(yt.get_videos('https://www.youtube.com/channel/UCMRdlwfhLECvQw0FN0s_csg'))
-    btn.btn_add(list1, yt)
+    btn.btn_add(list1, yt,ui)
     chromeThread = threading.Thread(target=th, daemon=True)
     chromeThread.start()
     app.exec_()

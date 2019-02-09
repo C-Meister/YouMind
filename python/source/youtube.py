@@ -15,7 +15,9 @@ class youtube():
     PLAYLIST = 2
     WATCH_AND_PLAYLIST = 3
     CHANNEL = 4
-    OTHERS = 5
+
+    USER = 5
+    OTHERS = 6
 
     API_KEY = ""
 
@@ -35,6 +37,8 @@ class youtube():
                     return self.WATCH
                 else:
                     return self.WATCH_AND_PLAYLIST
+            elif sub_url.find("user/") == 0:
+                return self.USER
             elif sub_url.find("channel/") == 0:
                 return self.CHANNEL
             else:
@@ -42,11 +46,12 @@ class youtube():
 
     def get_videos(self, url):
         urltype = self.get_urltype(url)
+        print("urltype:", urltype)
         # try:
         if urltype == self.NOT_YOUTUBE:
             return None
         elif urltype == self.WATCH:
-            return url
+            return self.get_video_one(url)
         elif urltype == self.PLAYLIST:
             id = url[url.find("list=")+len("list="):].split('&')[0]
             return self.get_videos_in_list(id, True)
@@ -56,6 +61,9 @@ class youtube():
 
         elif urltype == self.CHANNEL:
             id = url[url.find("channel/")+len("channel/"):].split('/')[0]
+            return self.get_videos_in_channel(id)
+        elif urltype == self.USER:
+            id = url[url.find("channel/")+len("user/"):].split('/')[0]
             return self.get_videos_in_channel(id, True)
 
         elif urltype == self.OTHERS:
@@ -63,13 +71,13 @@ class youtube():
 
         # except:
         #     return None
-    def get_videos_in_channel(self, channel_id, forUsername=False, print_title=False):
+    def get_videos_in_channel(self, channel_id, forUsername=False):
 
         base_video_url = 'https://www.youtube.com/watch?v='
         base_search_url = 'https://www.googleapis.com/youtube/v3/search?'
 
         first_url = base_search_url + \
-            'key={}&part=snippet,id&order=date&maxResults=25'.format(
+            'key={}&part=snippet,id&order=date&maxResults=50'.format(
                 self.API_KEY)
         first_url += '&channelId=' + \
             channel_id if forUsername is False else '&forUsername=' + channel_id
@@ -84,7 +92,11 @@ class youtube():
             for i in resp['items']:
                 if i['id']['kind'] == "youtube#video":
                     if i['snippet']['title'] != "Private video" and i['snippet']["liveBroadcastContent"] == 'none':
-                        video_links.append(base_video_url + i['id']['videoId'])
+                        video_links.append({
+                            'url': base_video_url + i['id']['videoId'],
+                            'title': i['snippet']['title'],
+                            'thumbnail': i['snippet']['thumbnails']['default']['url']
+                        })
             try:
                 next_page_token = resp['nextPageToken']
                 url = first_url + '&pageToken={}'.format(next_page_token)
@@ -113,13 +125,13 @@ class youtube():
                 if i['resourceId']['kind'] == "youtube#video":
                     if i['title'] != "Private video":
                         video_links.append({
-                            url: base_video_url + i['resourceId']['videoId']),
-                            title: i['title'].
-                            thumbnail: i['thumbnails']['default']['url']
+                            'url': base_video_url + i['resourceId']['videoId'],
+                            'title': i['title'],
+                            'thumbnail': i['thumbnails']['default']['url']
                         })
             try:
-                next_page_token=resp['nextPageToken']
-                url=first_url + '&pageToken={}'.format(next_page_token)
+                next_page_token = resp['nextPageToken']
+                url = first_url + '&pageToken={}'.format(next_page_token)
             except:
                 break
             time.sleep(0.1)
@@ -128,25 +140,21 @@ class youtube():
     def getVideoId(self, url):
         return url[url.find("v=")+len("v="):].split('&')[0]
 
-    def getVideoinfo(self, url):
-        print(url)
+    def get_video_one(self, url):
 
-        base_video_url='https://www.googleapis.com/youtube/v3/videos?id={}&key={}&part=snippet,contentDetails'.format(
+        base_video_url = 'https://www.googleapis.com/youtube/v3/videos?id={}&key={}&part=snippet,contentDetails'.format(
             self.getVideoId(url), self.API_KEY)
-        inp=urllib.request.urlopen(base_video_url)
-        resp=json.load(inp)
+        inp = urllib.request.urlopen(base_video_url)
+        resp = json.load(inp)
 
         for i in resp['items']:
             if i['kind'] == "youtube#video":
                 if i['snippet']['title'] != "Private video":
-                    # print(i['snippet']['title'])
-                    # print(i['snippet']['thumbnails'])
-                    # print(i["contentDetails"])
-                    return {
+                    return [{
                         "thumbnail": i['snippet']['thumbnails']['default']['url'],
                         "title": i['snippet']['title'],
-                        "duration": i['contentDetails']['duration']
-                    }
+                        "url": url
+                    }]
         return None
 
     def getInfo(self, url, ext_filter=None, resl_filter=None):
@@ -227,14 +235,15 @@ class youtube():
             self.getVideoinfo(url)
 
         # InfoList = []
-
-        for url in urlList:
-            # InfoList.append(self.getInfo(url, ext, resl))
-            self.getVideoinfo(url)
-            time.sleep(0.01)
+        # print(urlList)
+        pyperclip.copy(str(urlList))
+        # for url in urlList:
+        #     # InfoList.append(self.getInfo(url, ext, resl))
+        #     self.getVideoinfo(url)
+        #     time.sleep(0.01)
         # return InfoList
 
-        return InfoList
+        # return InfoList
 
     def get_channel_picture_url(self, id, forUsername=False):
         url = "https://www.googleapis.com/youtube/v3/channels?part=snippet&fields=items%2Fsnippet%2Fthumbnails%2Fdefault&key={}".format(
@@ -246,9 +255,9 @@ class youtube():
         return img_url
 
 
-y = youtube("AIzaSyCQ3RG5_ngnwRtP8cDfGDOdwhwHHE1Qcco")
+y = youtube("AIzaSyCmksLiLUv1yrxdnF1bPHt0x_O8wxwlGoE")
 
 # pp(y.getInfo(pyperclip.paste()))
-# print(y.getInfos(pyperclip.paste(),"mp4","1280x720"))
+print(y.getInfos(pyperclip.paste(), "mp4", "1280x720"))
 # print(y.get_videos_in_channel("bjummma",True))
 # print(y.get_channel_picture_url("mnetMPD",True))

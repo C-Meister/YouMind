@@ -14,7 +14,7 @@ API_KEY = "AIzaSyDFC_QxH093_VthlLPWvC2BmzPP0hhbX9U"
 
 app = QtWidgets.QApplication(sys.argv)
 MainWindow = QtWidgets.QMainWindow()
-
+btn = Btn(MainWindow)
 MainWindow.show()
 
 ui = Ui_MainWindow()

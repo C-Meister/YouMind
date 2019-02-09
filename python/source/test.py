@@ -2,11 +2,13 @@ import sys
 from Ui_test2 import *
 
 from kit_class import *
+from btn_class import *
 
 
 
 app = QtWidgets.QApplication(sys.argv)
 MainWindow = QtWidgets.QMainWindow()
+btn = Btn(MainWindow)
 
 MainWindow.show()
 
@@ -30,6 +32,7 @@ downloaddata = [
 
 list1 = Kit(ui)
 list1.add_download_list(downloaddata)
+
 
 app.exec_()
 

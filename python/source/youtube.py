@@ -4,6 +4,7 @@ import pafy
 import urllib
 import pyperclip
 import time
+import nativemessaging
 from pprint import pprint as pp
 import simplejson as json
 from time import sleep
@@ -23,7 +24,7 @@ class youtube():
     USER = 5
     OTHERS = 6
 
-    API_KEY =""
+    API_KEY = ""
     DOWNLOAD_PATH = ""
 
     LAST_UPLOAD_URL = None
@@ -60,6 +61,7 @@ class youtube():
 
     def change_path(self,path):
         self.DOWNLOAD_PATH = path
+
     def get_urltype(self, url):
         splited = url.split('www.youtube.com/')
         if len(splited) != 2:
@@ -194,12 +196,13 @@ class youtube():
                 break
             time.sleep(0.1)
         return video_links
-    def get_possible_fn(self,title, ext):
-        fn= title+"."+ext
+
+    def get_possible_fn(self, title, ext):
+        fn = title+"."+ext
         idx = 2
         while Path(fn).exists():
-            fn= title +" ({}).".format(idx)+ext
-            idx+=1
+            fn = title + " ({}).".format(idx)+ext
+            idx += 1
         return fn
 
     def download_video(self, download_dict ):

@@ -48,7 +48,7 @@ class Kit(QtWidgets.QMainWindow):
             self.ui.linked_image[i].setPixmap(QtGui.QPixmap(tmp_image))
 
 
-            self.ui.linked_title[i].setGeometry(QtCore.QRect(180, 10, 371, 71))
+            self.ui.linked_title[i].setGeometry(QtCore.QRect(180, 10, 361, 71))
             self.ui.linked_title[i].setText(downloaddata[i]['title'])
             font = QtGui.QFont()
             font.setFamily("서울남산체 EB")
@@ -62,7 +62,7 @@ class Kit(QtWidgets.QMainWindow):
             self.ui.linked_youtube_icon[i].setStyleSheet("image:url(./image/sub1.png);")
             self.ui.linked_youtube_icon[i].setText("")
             self.ui.linked_youtube_icon[i].setObjectName("linked_youtube_icon")
-            self.ui.linked_id[i].setGeometry(QtCore.QRect(210, 80, 351, 20))
+            self.ui.linked_id[i].setGeometry(QtCore.QRect(210, 80, 341, 20))
             font = QtGui.QFont()
             font.setFamily("서울남산체 M")
             font.setPointSize(9)

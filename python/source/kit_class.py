@@ -2,7 +2,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import urllib.request
 
-
 class Kit(QtWidgets.QMainWindow):
 
     
@@ -12,6 +11,7 @@ class Kit(QtWidgets.QMainWindow):
         self.urlbuf= []
         self.percentbuf = []
         self.ui.now_bar = []
+        self.downloaddata = []
             
     def clear_download_list(self):
         self.clearLayout(self.ui.verticalLayout_7)
@@ -29,7 +29,7 @@ class Kit(QtWidgets.QMainWindow):
                 child.widget().deleteLater()
 
     def add_download_list(self, downloaddata):  # 함수명 알아서 바꾸셈
-
+        self.downloaddata += downloaddata
         length = len(downloaddata)
 
         self.ui.linked_p = [QtWidgets.QWidget(
@@ -148,7 +148,7 @@ class Kit(QtWidgets.QMainWindow):
                                              "     background-color: #A293BD;\n"
                                              "     width: 20px;\n"
                                              " }")
-            self.ui.now_bar[ni].setProperty("value", 58)
+            self.ui.now_bar[ni].setProperty("value", 0)
             self.ui.now_bar[ni].setAlignment(QtCore.Qt.AlignCenter)
             self.ui.now_bar[ni].setObjectName("now_bar")
 

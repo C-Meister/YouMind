@@ -5,7 +5,8 @@
   "description": "YouMind 동영상 다운로드 Chrome Extension 버전입니다.",
   "browser_action": {
     "default_title": "YouMind Extension",
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
   },
   "background": {
     "scripts": ["scripts/background.js"],

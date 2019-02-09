@@ -9,6 +9,7 @@ class Btn(QtWidgets.QMainWindow):
         self.list1 = list1
         self.yt = yt
         self.ui = ui
+        
 
     def btn_link_event(self):
         self.ui.stackedWidget.setCurrentIndex(0)
@@ -40,18 +41,24 @@ class Btn(QtWidgets.QMainWindow):
     
     def Th(self):
         url_list= self.list1.urlbuf
+        
         ext = 'mp4'
         resl = '480x360'
 
 
-
+        
+        self.yt.bar_list = self.list1.ui.now_bar
         self.yt.round_robin_download(url_list,ext,resl)
     
     def btn_download_event(self):
+        self.list1.add_now_list(self.list1.downloaddata)
         t=threading.Thread(target=self.Th,daemon=True)
         t.start()
 
+        self.list1.clear_download_list()
+
     def btn_file_chooser_event(self):
+
         pass
 
 

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+from functools import partial
 import pafy
 import urllib
 import pyperclip
@@ -10,9 +10,9 @@ import simplejson as json
 from time import sleep
 from pathlib import Path
 import threading
-from multiprocessing import Pool
+from multiprocessing import Pool,Array,Manager
 import sched
-
+import os
 class youtube():
 
     NOT_YOUTUBE = 0
@@ -23,7 +23,7 @@ class youtube():
 
     USER = 5
     OTHERS = 6
-
+    
     API_KEY = ""
     DOWNLOAD_PATH = ""
 
@@ -191,7 +191,7 @@ class youtube():
             except:
                 break
         return video_links
-
+    
     def get_videos_in_list(self, list_id, print_title=False):
 
         base_video_url = 'https://www.youtube.com/watch?v='
@@ -234,23 +234,43 @@ class youtube():
         return fn
 
     def download_video(self, download_dict ):
+        self.lastaas=""
         url = download_dict['url']  
         ext_filter = download_dict['ext']
         resl_filter= download_dict['resl'] if 'resl' in download_dict else None
         cb=download_dict['cb'] if 'cb' in download_dict else None
+        idx = download_dict['idx']
         print(url)
         ytube_video = pafy.new(url)
         if resl_filter is not None:
             for s in ytube_video.streams:
                 ext = s.extension
                 if ext == ext_filter and s.resolution == resl_filter:
+                    print("249")
                     print(s.url)
-                    s.download(filepath=self.get_possible_fn(self.DOWNLOAD_PATH+ytube_video.title,ext),quiet=True,callback=cb)
+                    s.download(filepath=self.get_possible_fn(self.DOWNLOAD_PATH+ytube_video.title,ext),quiet=True,callback=lambda total, dtotal, ratio, speed, left_seconds : self.barUpdate(idx,int(ratio*100)))
                     return
-
         ytube_best = ytube_video.getbest(preftype=ext_filter)
-        ytube_best.download(filepath=self.get_possible_fn(self.DOWNLOAD_PATH+ytube_best.title,ytube_best.extension),quiet=True,callback=cb)
+        ytube_best.download(filepath=self.get_possible_fn(self.DOWNLOAD_PATH+ytube_best.title,ytube_best.extension),quiet=True,callback=lambda total,dtotal,ratio,rate,eta: self.barUpdate(idx,int(ratio*100)))
         return
+    def barUpdate(self,idx,per):
+        f=open("temp.txt","a")
+        aas = str(idx)+","+str(per)+'\n'
+        if aas != self.lastaas:
+            f.write(aas)
+            self.lastaas = aas    
+        f.close()
+        
+    def reader(self,mydata):
+        f= open("temp.txt","r")
+        while self.flag:
+            try:
+                idx,per = list(map(int,f.readlines()[-1].split(',')))
+                mydata[idx].setValue(per)
+
+            except:
+                pass
+
 
     def getVideoId(self, url):
         return url[url.find("v=")+len("v="):].split('&')[0]
@@ -271,13 +291,22 @@ class youtube():
                         "url": url
                     }]
         return None
-            
+
+
     
     def round_robin_download(self,video_list,ext, resl=None, cb=None,threadCount = 4):
+        global mydata
+        mydata = self.bar_list
+        f=open("temp.txt","w")
+        f.close()
+
+        self.flag = True
+        threading.Thread(target=self.reader,args=(mydata,),daemon=True).start()
+        self.bar_list = []
         pool = Pool(threadCount)
-        tuple_list = [{"url":video,"ext":ext,"resl":resl,"cb":cb} for video in video_list]
-        print(tuple_list)
+        tuple_list = [{"url":video,"ext":ext,"resl":resl,"cb":cb,"idx":idx} for video,idx in zip(video_list,range(len(video_list)))]
         pool.map(self.download_video,tuple_list)
+        self.flag = False
         pool.close()
         pool.join()
         
@@ -376,13 +405,13 @@ class youtube():
         y.round_robin_download(y.get_videos("https://www.youtube.com/channel/UCGR-u2P38jfdOrO495kqVaw/videos?view=0&flow=grid"),"mp4","480x360")
 
 if __name__ == '__main__':
-    y = youtube("AIzaSyCF2cbRoztUBws-HQsyF7I-x0OVM7KbhP4","C:\\Users\\YASUO\\Videos\\")
+    y = youtube("AIzaSyBTXsPgj6BuSIBgMpiEUHmZ_Acgiz04Prs","C:\\Users\\YASUO\\Videos\\")
     #pp(y.getInfo(pyperclip.paste()))
 
-    print(y.getInfo(pyperclip.paste(),"m4a", "128k"))
+    #print(y.getInfo(pyperclip.paste(),"m4a", "128k"))
 
     #y.zsdf()
-    #y.download_video({"url":"https://www.youtube.com/watch?v=1eEcL8XjogE","ext":"mp4","resl":"1280x720"})
+    y.download_video({"url":"https://www.youtube.com/watch?v=1eEcL8XjogE","ext":"mp4","resl":"1280x720"})
     
     #print(y.get_channel_Info("mnetMPD",True))
     #y.subscribe("https://www.youtube.com/channel/UCu9BCtGIEr73LXZsKmoujKw","")

@@ -9,8 +9,9 @@ from pprint import pprint as pp
 import simplejson as json
 from time import sleep
 from pathlib import Path
+import threading
 from multiprocessing import Pool
-
+import sched
 
 class youtube():
 
@@ -20,7 +21,7 @@ class youtube():
     WATCH_AND_PLAYLIST = 3
     CHANNEL = 4
 
-
+    t=None
     USER = 5
     OTHERS = 6
 
@@ -34,30 +35,49 @@ class youtube():
     def __init__(self, key, path=None):
         self.API_KEY = key
         self.DOWNLOAD_PATH = path
-        f = open("subscribed.txt","r")
-        url = f.readline()
+        f=open("subscribed.txt","r")
+        url=f.readline()
+        f.close()
+        f=open("lastuploaded.txt","r")
+        self.LAST_UPLOAD_URL = f.readline()
         f.close()
         self.subscribe(url)
+
     def subscribe(self, url):
-        print("subscribing:",url)
-        flag = self.SUBSCRIBED_ID is None
-        urltype = self.get_urltype(url)
-        f= open("subscribed.txt","w")
-        f.write(url)
-        f.close()
+        urltype= self.get_urltype(url)
+        flag = False
         if urltype == self.CHANNEL:
             id = url[url.find("channel/")+len("channel/"):].split('/')[0]
-            self.LAST_UPLOAD_URL= None
-            self.SUBSCRIBED_ID = id
+            
             self.SUBSCRIBED_forUser = False
+            if self.SUBSCRIBED_ID != id:
+                #새로운 구독
+                self.LAST_UPLOAD_URL =""
+                self.SUBSCRIBED_ID = id
+                flag= True
+
         elif urltype == self.USER:
             id = url[url.find("channel/")+len("user/"):].split('/')[0]
-            self.LAST_UPLOAD_URL= None
-            self.SUBSCRIBED_ID = id
-            self.SUBSCRIBED_forUser = True
-        if flag:
-            #thread 실행하세요
-            pass
+            self.SUBSCRIBED_forUser = True    
+            if self.SUBSCRIBED_ID != id:
+                #새로운 구독
+                self.LAST_UPLOAD_URL =""
+                self.SUBSCRIBED_ID = id
+                flag=True
+
+        if flag is True:
+            #쓰레드시작
+            if self.t is not None:
+                self.t.cancel()
+            self.t = threading.Thread(target=self.repeater,daemon=True)
+            
+            self.t.start()
+            
+            
+    def repeater(self):
+        while True:
+            self.isUploaded()
+            time.sleep(60)
 
     def change_path(self,path):
         self.DOWNLOAD_PATH = path
@@ -111,7 +131,6 @@ class youtube():
         #     return None
         
     def isUploaded(self):
-        
         base_video_url = 'https://www.youtube.com/watch?v='
         base_search_url = 'https://www.googleapis.com/youtube/v3/search?'
 
@@ -121,14 +140,26 @@ class youtube():
         first_url += '&channelId=' + \
             self.SUBSCRIBED_ID if self.SUBSCRIBED_forUser is False else '&forUsername=' + self.SUBSCRIBED_ID
         url = first_url
+        # print("API URL : ",url)
         inp = urllib.request.urlopen(url)
         resp = json.load(inp)
         current_url  = base_video_url+resp['items'][0]['id']['videoId']
-        if self.LAST_UPLOAD_URL is None:
+        if self.LAST_UPLOAD_URL == "":
+            print("FIRST :",current_url)
             self.LAST_UPLOAD_URL = current_url
+            f=open("lastuploaded.txt","w")
+            f.write(self.LAST_UPLOAD_URL)
+            f.close()
         elif self.LAST_UPLOAD_URL != current_url:
+            print("UPDATED :", current_url)
             self.LAST_UPLOAD_URL = base_video_url+resp['items'][0]['id']['videoId']
+            f=open("lastuploaded.txt","w")
+            f.write(self.LAST_UPLOAD_URL)
+            f.close()
+        else:
+            print("SAME :",current_url)
         
+
 
     def get_videos_in_channel(self, channel_id, forUsername=False):
 
@@ -334,14 +365,15 @@ class youtube():
                     
 
 
-    def get_channel_picture_url(self, id, forUsername=False):
-        url = "https://www.googleapis.com/youtube/v3/channels?part=snippet&fields=items%2Fsnippet%2Fthumbnails%2Fdefault&key={}".format(
+    def get_channel_Info(self, id, forUsername=False):
+        url = "https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&key={}".format(
             self.API_KEY)
         url += "&forUsername=" + id if forUsername is True else "&id="+id
+        print("url:",url)
         inp = urllib.request.urlopen(url)
         resp = json.load(inp)
         img_url = resp['items'][0]['snippet']['thumbnails']['default']['url']
-        return img_url
+        return {"url":img_url,"title":resp['items'][0]['snippet']['title'],"subscriberCount":resp['items'][0]['statistics']['subscriberCount']}
     def zsdf(self):
         y.round_robin_download(y.get_videos("https://www.youtube.com/channel/UCGR-u2P38jfdOrO495kqVaw/videos?view=0&flow=grid"),"mp4","480x360")
     
@@ -349,10 +381,15 @@ class youtube():
 if __name__ == '__main__':
     y = youtube("AIzaSyCF2cbRoztUBws-HQsyF7I-x0OVM7KbhP4","C:\\Users\\YASUO\\Videos\\")
     #pp(y.getInfo(pyperclip.paste()))
+<<<<<<< HEAD
     print(y.getInfo(pyperclip.paste(),"m4a", "128k"))
 
+=======
+    
+>>>>>>> 157f691e3cd23d00bd9273e2208220db09cccf25
     #y.zsdf()
     #y.download_video({"url":"https://www.youtube.com/watch?v=1eEcL8XjogE","ext":"mp4","resl":"1280x720"})
-    #print(y.get_channel_picture_url("mnetMPD",True))
-    #y.subscribe("https://www.youtube.com/channel/UCu9BCtGIEr73LXZsKmoujKw")
-    #y.isUploaded()
+    print(y.get_channel_Info("mnetMPD",True))
+    #y.subscribe("https://www.youtube.com/channel/UCu9BCtGIEr73LXZsKmoujKw","")
+    # while True:
+    #     pass

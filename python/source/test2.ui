@@ -38,162 +38,6 @@
     <property name="currentIndex">
      <number>0</number>
     </property>
-    <widget class="QWidget" name="page_link">
-     <widget class="QPushButton" name="btn_link_download">
-      <property name="geometry">
-       <rect>
-        <x>380</x>
-        <y>680</y>
-        <width>171</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>다운로드</string>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="combo_link_format">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>680</y>
-        <width>176</width>
-        <height>31</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="btn_link_file">
-      <property name="geometry">
-       <rect>
-        <x>520</x>
-        <y>640</y>
-        <width>31</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{image:url(./image/folder1.png); border:0px; background-color : rgba(0,0,0,0);}
-QPushButton:hover{image:url(./image/folder2.png); border:0px;background-color : rgba(0,0,0,0);}</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_2">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>640</y>
-        <width>501</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color : white; border:0px;</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="combo_link_format_2">
-      <property name="geometry">
-       <rect>
-        <x>200</x>
-        <y>680</y>
-        <width>171</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string>1080p - 17.75MB</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>720p - 17.75MB</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>480p 60ps - 12.5MB</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>장민석 - 신상호</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QScrollArea" name="panel_link">
-      <property name="geometry">
-       <rect>
-        <x>-10</x>
-        <y>70</y>
-        <width>561</width>
-        <height>561</height>
-       </rect>
-      </property>
-      <property name="widgetResizable">
-       <bool>true</bool>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-      </property>
-      <widget class="QWidget" name="layout_link_data">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>559</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <layout class="QVBoxLayout" name="verticalLayout_7">
-        <property name="spacing">
-         <number>0</number>
-        </property>
-        <property name="sizeConstraint">
-         <enum>QLayout::SetDefaultConstraint</enum>
-        </property>
-        <property name="leftMargin">
-         <number>0</number>
-        </property>
-        <property name="topMargin">
-         <number>0</number>
-        </property>
-        <property name="rightMargin">
-         <number>0</number>
-        </property>
-        <property name="bottomMargin">
-         <number>0</number>
-        </property>
-       </layout>
-      </widget>
-     </widget>
-     <widget class="QLabel" name="asdf_2">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>10</y>
-        <width>551</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>재생목록 / 동영상 선택</string>
-      </property>
-     </widget>
-    </widget>
     <widget class="QWidget" name="page_3">
      <widget class="QScrollArea" name="scrollArea_2">
       <property name="geometry">
@@ -212,7 +56,7 @@ QPushButton:hover{image:url(./image/folder2.png); border:0px;background-color : 
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>98</width>
+         <width>392</width>
          <height>966</height>
         </rect>
        </property>
@@ -1285,7 +1129,7 @@ QPushButton:checked{image:url(./image/sub2.png); border:0px;background-color : r
         <x>0</x>
         <y>0</y>
         <width>639</width>
-        <height>120</height>
+        <height>16</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -1310,140 +1154,6 @@ QPushButton:checked{image:url(./image/sub2.png); border:0px;background-color : r
        <property name="bottomMargin">
         <number>0</number>
        </property>
-       <item>
-        <widget class="QWidget" name="now_panel" native="true">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>120</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>120</height>
-          </size>
-         </property>
-         <widget class="QLabel" name="now_image">
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>10</y>
-            <width>160</width>
-            <height>90</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color : black ;</string>
-          </property>
-          <property name="text">
-           <string>썸네일ㄴㅇㄹㄴㅇㄹㄴㅇㄹ</string>
-          </property>
-         </widget>
-         <widget class="QProgressBar" name="now_bar">
-          <property name="geometry">
-           <rect>
-            <x>180</x>
-            <y>80</y>
-            <width>431</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>서울남산체 M</family>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QProgressBar {
-     border: 2px solid grey;
-     border-radius: 5px;
-     background-color: #FFFFFF;
-	 text-color : rgb(128,128,128);
-}
-
- QProgressBar::chunk {
-     background-color: #A293BD;
-     width: 20px;
- }</string>
-          </property>
-          <property name="value">
-           <number>58</number>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-          <property name="format">
-           <string>%p%</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="now_youtube_icon">
-          <property name="geometry">
-           <rect>
-            <x>180</x>
-            <y>55</y>
-            <width>21</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">image:url(./image/sub1.png);</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-         <widget class="QLabel" name="now_title">
-          <property name="geometry">
-           <rect>
-            <x>178</x>
-            <y>10</y>
-            <width>421</width>
-            <height>51</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>서울남산체 EB</family>
-            <pointsize>12</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>'사탄 : 아 이건 좀;;, 사탄 드립'은 어디서 나온 말일까?ㄴㅇㄹㄴㅇㄹㄴㅇㄹ</string>
-          </property>
-          <property name="scaledContents">
-           <bool>false</bool>
-          </property>
-          <property name="wordWrap">
-           <bool>true</bool>
-          </property>
-         </widget>
-         <widget class="QLabel" name="now_id">
-          <property name="geometry">
-           <rect>
-            <x>208</x>
-            <y>55</y>
-            <width>351</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>서울남산체 M</family>
-            <pointsize>9</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>https://www.youtube.com/watch?v=P9J87Bxdtg8</string>
-          </property>
-         </widget>
-         <zorder>now_image</zorder>
-         <zorder>now_bar</zorder>
-         <zorder>now_title</zorder>
-         <zorder>now_id</zorder>
-         <zorder>now_youtube_icon</zorder>
-        </widget>
-       </item>
       </layout>
      </widget>
     </widget>
@@ -1481,38 +1191,6 @@ QPushButton:checked{image:url(./image/sub2.png); border:0px;background-color : r
     <hint type="destinationlabel">
      <x>376</x>
      <y>-13</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>btn_link_file</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>btn_file_chooser_event()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>616</x>
-     <y>655</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>576</x>
-     <y>-2</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>btn_link_download</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>btn_download_event()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>533</x>
-     <y>696</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>408</x>
-     <y>-4</y>
     </hint>
    </hints>
   </connection>

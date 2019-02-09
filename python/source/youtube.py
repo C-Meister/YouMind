@@ -313,6 +313,7 @@ class youtube():
         self.flag = False
         pool.close()
         pool.join()
+        os.remove("temp.txt")
         
 
     def getInfo(self, url, ext_filter=None, resl_filter=None):

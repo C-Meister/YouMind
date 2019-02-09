@@ -72,7 +72,7 @@ class youtube():
             
             
     def repeater(self):
-        while True:
+        while True: 
             self.isUploaded()
             time.sleep(60)
 
@@ -372,8 +372,8 @@ class youtube():
         img_url = resp['items'][0]['snippet']['thumbnails']['default']['url']
         return {"url":img_url,"title":resp['items'][0]['snippet']['title'],"subscriberCount":resp['items'][0]['statistics']['subscriberCount']}
     def zsdf(self):
+        
         y.round_robin_download(y.get_videos("https://www.youtube.com/channel/UCGR-u2P38jfdOrO495kqVaw/videos?view=0&flow=grid"),"mp4","480x360")
-    
 
 if __name__ == '__main__':
     y = youtube("AIzaSyCF2cbRoztUBws-HQsyF7I-x0OVM7KbhP4","C:\\Users\\YASUO\\Videos\\")
@@ -383,7 +383,8 @@ if __name__ == '__main__':
 
     #y.zsdf()
     #y.download_video({"url":"https://www.youtube.com/watch?v=1eEcL8XjogE","ext":"mp4","resl":"1280x720"})
-    print(y.get_channel_Info("mnetMPD",True))
+    
+    #print(y.get_channel_Info("mnetMPD",True))
     #y.subscribe("https://www.youtube.com/channel/UCu9BCtGIEr73LXZsKmoujKw","")
     # while True:
     #     pass

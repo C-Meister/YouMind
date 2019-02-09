@@ -23,7 +23,7 @@ class youtube():
 
     USER = 5
     OTHERS = 6
-
+    
     API_KEY = ""
     DOWNLOAD_PATH = ""
 
@@ -234,6 +234,7 @@ class youtube():
         return fn
 
     def download_video(self, download_dict ):
+        self.lastaas=""
         url = download_dict['url']  
         ext_filter = download_dict['ext']
         resl_filter= download_dict['resl'] if 'resl' in download_dict else None
@@ -247,14 +248,28 @@ class youtube():
                 if ext == ext_filter and s.resolution == resl_filter:
                     print("249")
                     print(s.url)
-                    s.download(filepath=self.get_possible_fn(self.DOWNLOAD_PATH+ytube_video.title,ext),quiet=False,callback=lambda total, dtotal, ratio, speed, left_seconds : self.barUpdate(idx,int(ratio*100)))
+                    s.download(filepath=self.get_possible_fn(self.DOWNLOAD_PATH+ytube_video.title,ext),quiet=True,callback=lambda total, dtotal, ratio, speed, left_seconds : self.barUpdate(idx,int(ratio*100)))
                     return
         ytube_best = ytube_video.getbest(preftype=ext_filter)
         ytube_best.download(filepath=self.get_possible_fn(self.DOWNLOAD_PATH+ytube_best.title,ytube_best.extension),quiet=True,callback=lambda total,dtotal,ratio,rate,eta: self.barUpdate(idx,int(ratio*100)))
         return
     def barUpdate(self,idx,per):
-        self.f.append(idx+","+per)
+        f=open("temp.txt","a")
+        aas = str(idx)+","+str(per)+'\n'
+        if aas != self.lastaas:
+            f.write(aas)
+            self.lastaas = aas    
+        f.close()
         
+    def reader(self,mydata):
+        f= open("temp.txt","r")
+        while self.flag:
+            try:
+                idx,per = list(map(int,f.readlines()[-1].split(',')))
+                mydata[idx].setValue(per)
+
+            except:
+                pass
 
 
     def getVideoId(self, url):
@@ -282,17 +297,16 @@ class youtube():
     def round_robin_download(self,video_list,ext, resl=None, cb=None,threadCount = 4):
         global mydata
         mydata = self.bar_list
-        
-        self.f= open("temp.txt","w")
-        self.f.close()
-        self.f= open("temp.txt","a")
+        f=open("temp.txt","w")
+        f.close()
+
+        self.flag = True
+        threading.Thread(target=self.reader,args=(mydata,),daemon=True).start()
         self.bar_list = []
         pool = Pool(threadCount)
         tuple_list = [{"url":video,"ext":ext,"resl":resl,"cb":cb,"idx":idx} for video,idx in zip(video_list,range(len(video_list)))]
-        
         pool.map(self.download_video,tuple_list)
-        self.f.close()
-        print(mydata,self.li)
+        self.flag = False
         pool.close()
         pool.join()
         

@@ -8,7 +8,7 @@ import threading
 import nativemessaging
 
 downloaddata = []
-API_KEY = "AIzaSyAY4FX9BLQocw3a9X6NF3qL158FhFsWTcU"
+API_KEY = "AIzaSyBSinrqSaEr4BjZnWhbqv4fEKphbs9x0oM"
 
 
 class Signal(QObject):

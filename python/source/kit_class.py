@@ -148,7 +148,7 @@ class Kit(QtWidgets.QMainWindow):
                                              "     background-color: #A293BD;\n"
                                              "     width: 20px;\n"
                                              " }")
-            self.ui.now_bar[ni].setProperty("value", 58)
+            self.ui.now_bar[ni].setProperty("value", 0)
             self.ui.now_bar[ni].setAlignment(QtCore.Qt.AlignCenter)
             self.ui.now_bar[ni].setObjectName("now_bar")
 

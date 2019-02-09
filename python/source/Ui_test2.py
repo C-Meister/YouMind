@@ -45,6 +45,7 @@ class Ui_MainWindow(object):
 "    border-radius: 3px;\n"
 "    padding: 1px 18px 1px 3px;\n"
 "    min-width: 6em;\n"
+"    color : #ffffff;\n"
 "}\n"
 "\n"
 "QComboBox:editable {\n"
@@ -87,6 +88,7 @@ class Ui_MainWindow(object):
 "    left: 1px;\n"
 "}")
         self.combo_link_format.setObjectName("combo_link_format")
+        self.combo_link_format.addItem("")
         self.btn_link_file = QtWidgets.QPushButton(self.page_link)
         self.btn_link_file.setGeometry(QtCore.QRect(520, 640, 31, 31))
         self.btn_link_file.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
@@ -114,6 +116,7 @@ class Ui_MainWindow(object):
 "    border-radius: 3px;\n"
 "    padding: 1px 18px 1px 3px;\n"
 "    min-width: 6em;\n"
+"    color: #ffffff;\n"
 "}\n"
 "\n"
 "QComboBox:editable {\n"
@@ -156,6 +159,7 @@ class Ui_MainWindow(object):
 "    left: 1px;\n"
 "}")
         self.combo_link_format_2.setObjectName("combo_link_format_2")
+        self.combo_link_format_2.addItem("")
         self.panel_link = QtWidgets.QScrollArea(self.page_link)
         self.panel_link.setGeometry(QtCore.QRect(0, 50, 551, 581))
         self.panel_link.setStyleSheet("border : 0px;")
@@ -330,6 +334,8 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.btn_link_download.setText(_translate("MainWindow", "다운로드"))
+        self.combo_link_format.setItemText(0, _translate("MainWindow", "asdf"))
+        self.combo_link_format_2.setItemText(0, _translate("MainWindow", "asdf"))
         self.label_5.setText(_translate("MainWindow", "다운로드"))
         self.label_4.setText(_translate("MainWindow", "구독"))
         self.label_3.setText(_translate("MainWindow", "구독자 23명"))

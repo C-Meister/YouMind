@@ -98,6 +98,7 @@ QPushButton:hover{border:0px;background-color : #705697; color : #FFFFFF}</strin
     border-radius: 3px;
     padding: 1px 18px 1px 3px;
     min-width: 6em;
+	color : #ffffff;
 }
 
 QComboBox:editable {
@@ -140,6 +141,11 @@ QComboBox::down-arrow:on { /* shift the arrow when popup is open */
     left: 1px;
 }</string>
       </property>
+      <item>
+       <property name="text">
+        <string>asdf</string>
+       </property>
+      </item>
      </widget>
      <widget class="QPushButton" name="btn_link_file">
       <property name="geometry">
@@ -204,6 +210,7 @@ QPushButton:hover{image:url(./image/folder2.png); border:0px;background-color : 
     border-radius: 3px;
     padding: 1px 18px 1px 3px;
     min-width: 6em;
+	color: #ffffff;
 }
 
 QComboBox:editable {
@@ -246,6 +253,11 @@ QComboBox::down-arrow:on { /* shift the arrow when popup is open */
     left: 1px;
 }</string>
       </property>
+      <item>
+       <property name="text">
+        <string>asdf</string>
+       </property>
+      </item>
      </widget>
      <widget class="QScrollArea" name="panel_link">
       <property name="geometry">

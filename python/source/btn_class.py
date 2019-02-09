@@ -1,13 +1,18 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import urllib.request
+import pyperclip
 
 
 class Btn(QtWidgets.QMainWindow):
+    def btn_add(self,list1, yt):
+        self.list1 = list1
+        self.yt = yt
 
     def btn_link_event(self):
 
+        url = pyperclip.paste()
 
-
+        self.list1.add_download_list(self.yt.get_videos(url))
 
 
 

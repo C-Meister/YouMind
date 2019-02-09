@@ -1,1 +1,1 @@
-console.log("background Scripts");
+var port = chrome.runtime.connectNative("com.google.chrome.example.echo")

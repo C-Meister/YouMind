@@ -119,9 +119,9 @@ class youtube():
                 if i['resourceId']['kind'] == "youtube#video":
                     if i['title'] != "Private video":
                         video_links.append({
-                            url: base_video_url + i['resourceId']['videoId']),
-                            title: i['title'],
-                            thumbnail: i['thumbnails']['default']['url']
+                            "url": base_video_url + i['resourceId']['videoId']),
+                            "title": i['title'],
+                            "thumbnail": i['thumbnails']['default']['url']
                         })
             try:
                 next_page_token=resp['nextPageToken']

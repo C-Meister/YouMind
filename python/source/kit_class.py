@@ -9,7 +9,7 @@ class Kit(QtWidgets.QMainWindow):
 
     def __init__(self,ui):
         super().__init__()
-        self.ui = ui        
+        self.ui = ui   
 
 
 
@@ -165,3 +165,4 @@ class Kit(QtWidgets.QMainWindow):
             self.ui.verticalLayout_6.addWidget(self.ui.now_panel[i])
 
         self.ui.now_bar[1].setValue(50)
+    

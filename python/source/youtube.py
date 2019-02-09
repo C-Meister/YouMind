@@ -186,41 +186,6 @@ class youtube():
                     }]
         return None
 
-    def getInfo(self, url, ext_filter=None, resl_filter=None):
-        print(url)
-
-        ytube_video = pafy.new(url)
-        ytube_thumbnail = ytube_video.thumb
-        ytube_duration = ytube_video.duration
-
-        ytube_exts = {}
-        ytube_info = {}
-
-        if ext_filter is None and resl_filter is None:
-
-            for s in ytube_video.streams:
-
-                ext = s.extension  # 확장자
-                ytube_ext_info = [s.url, s.get_filesize()]  # url과 파일 사이즈
-                ytube_ext_info_dic = {s.resolution: ytube_ext_info}
-
-                if not ext in ytube_exts:
-
-                    ext_list = []
-                    ytube_exts[ext] = ext_list
-
-                ytube_exts[ext].append(ytube_ext_info_dic)
-
-            ytube_info = {
-                "thumbnail": ytube_thumbnail,
-                "title": ytube_video.title,
-                "download": ytube_exts,
-                "duration": ytube_duration
-            }
-
-        elif ext_filter is not None and resl_filter is not None:
-
-            EXIST = 0
 
             
 
@@ -233,8 +198,6 @@ class youtube():
         urlList = self.get_videos(url)
         if urlList is None:
             return None
-        elif not isinstance(urlList, list):
-            self.getVideoinfo(url)
 
         # InfoList = []
         # print(urlList)

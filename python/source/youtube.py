@@ -39,10 +39,11 @@ class youtube():
         f.close()
         f=open("lastuploaded.txt","r")
         self.LAST_UPLOAD_URL = f.readline()
+        print("self.last",self.LAST_UPLOAD_URL)
         f.close()
-        self.subscribe(url)
+        self.subscribe(url,True)
 
-    def subscribe(self, url):
+    def subscribe(self, url,fir=False):
         urltype= self.get_urltype(url)
         flag = False
         if urltype == self.CHANNEL:
@@ -51,7 +52,8 @@ class youtube():
             self.SUBSCRIBED_forUser = False
             if self.SUBSCRIBED_ID != id:
                 #새로운 구독
-                self.LAST_UPLOAD_URL =""
+                if fir is False:
+                    self.LAST_UPLOAD_URL =""
                 self.SUBSCRIBED_ID = id
                 flag= True
 
@@ -60,7 +62,8 @@ class youtube():
             self.SUBSCRIBED_forUser = True    
             if self.SUBSCRIBED_ID != id:
                 #새로운 구독
-                self.LAST_UPLOAD_URL =""
+                if fir is False:
+                    self.LAST_UPLOAD_URL =""
                 self.SUBSCRIBED_ID = id
                 flag=True
 
@@ -150,6 +153,7 @@ class youtube():
         elif self.LAST_UPLOAD_URL != current_url:
             print("UPDATED :", current_url)
             self.LAST_UPLOAD_URL = base_video_url+resp['items'][0]['id']['videoId']
+            self.download_video({"url":self.LAST_UPLOAD_URL,"ext":"mp4","resl":"1920x1080","idx":0})
             f=open("lastuploaded.txt","w")
             f.write(self.LAST_UPLOAD_URL)
             f.close()

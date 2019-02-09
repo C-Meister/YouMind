@@ -296,7 +296,7 @@ class youtube():
 
         if ext_filter is None and resl_filter is None:
 
-            for s in ytube_video.streams:
+            for s in ytube_video.streams+ytube_video.audiostreams:
 
                 ext = s.extension # 확장자 
                 ytube_ext_info = [s.url, s.get_filesize()] # url과 파일 사이즈
@@ -320,14 +320,18 @@ class youtube():
 
             EXIST = 0
 
-            for s in ytube_video.streams:
+            for s in ytube_video.streams+ytube_video.audiostreams:
 
                 ext = s.extension
 
-                if ext == ext_filter and s.resolution == resl_filter:
+                if ext == ext_filter and (s.resolution == resl_filter or s.bitrate == resl_filter):
 
                     ytube_ext_info = [s.url, s.get_filesize()] # url과 파일 사이즈
-                    ytube_ext_info_dic = {s.resolution : ytube_ext_info}
+                    if s.bitrate == resl_filter:
+
+                        ytube_ext_info_dic = {s.bitrate : ytube_ext_info}
+                    else:
+                        ytube_ext_info_dic = {s.resolution : ytube_ext_info}
 
                     ytube_info = {
                     "thumbnail" : ytube_thumbnail,
@@ -337,11 +341,18 @@ class youtube():
                     EXIST = 1
 
             if EXIST == 0:
-
+                print("best")
                 ytube_best = ytube_video.getbest(preftype=ext_filter)
+                if ytube_best is None:
+                    ytube_best = ytube_video.getbestaudio(preftype=ext_filter)
 
-                ytube_ext_info = [ytube_best.url, ytube_best.get_filesize()]
-                ytube_ext_info_dic = {ytube_best.resolution : ytube_ext_info}
+                    ytube_ext_info = [ytube_best.url, ytube_best.get_filesize()]
+                    ytube_ext_info_dic = {ytube_best.bitrate : ytube_ext_info}
+                else:
+
+                    ytube_ext_info = [ytube_best.url, ytube_best.get_filesize()]
+                    ytube_ext_info_dic = {ytube_best.resolution : ytube_ext_info}
+
 
                 ytube_info = {
                     "thumbnail" : ytube_thumbnail,
@@ -354,14 +365,15 @@ class youtube():
                     
 
 
-    def get_channel_picture_url(self, id, forUsername=False):
-        url = "https://www.googleapis.com/youtube/v3/channels?part=snippet&fields=items%2Fsnippet%2Fthumbnails%2Fdefault&key={}".format(
+    def get_channel_Info(self, id, forUsername=False):
+        url = "https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&key={}".format(
             self.API_KEY)
         url += "&forUsername=" + id if forUsername is True else "&id="+id
+        print("url:",url)
         inp = urllib.request.urlopen(url)
         resp = json.load(inp)
         img_url = resp['items'][0]['snippet']['thumbnails']['default']['url']
-        return img_url
+        return {"url":img_url,"title":resp['items'][0]['snippet']['title'],"subscriberCount":resp['items'][0]['statistics']['subscriberCount']}
     def zsdf(self):
         y.round_robin_download(y.get_videos("https://www.youtube.com/channel/UCGR-u2P38jfdOrO495kqVaw/videos?view=0&flow=grid"),"mp4","480x360")
     
@@ -369,11 +381,15 @@ class youtube():
 if __name__ == '__main__':
     y = youtube("AIzaSyCF2cbRoztUBws-HQsyF7I-x0OVM7KbhP4","C:\\Users\\YASUO\\Videos\\")
     #pp(y.getInfo(pyperclip.paste()))
-    print(y.getInfos(pyperclip.paste(),"mp4","1280x720"))
+<<<<<<< HEAD
+    print(y.getInfo(pyperclip.paste(),"m4a", "128k"))
 
+=======
+    
+>>>>>>> 157f691e3cd23d00bd9273e2208220db09cccf25
     #y.zsdf()
     #y.download_video({"url":"https://www.youtube.com/watch?v=1eEcL8XjogE","ext":"mp4","resl":"1280x720"})
-    #print(y.get_channel_picture_url("mnetMPD",True))
+    print(y.get_channel_Info("mnetMPD",True))
     #y.subscribe("https://www.youtube.com/channel/UCu9BCtGIEr73LXZsKmoujKw","")
     # while True:
     #     pass

@@ -26,7 +26,8 @@ def th():
     while True:
         message = nativemessaging.get_message()
         signal.signal.emit(message)
-        MainWindow.setWindowState(MainWindow.windowState() & ~QtCore.Qt.WindowMinimized | QtCore.Qt.WindowActive)
+        MainWindow.setWindowState(MainWindow.windowState(
+        ) & ~QtCore.Qt.WindowMinimized | QtCore.Qt.WindowActive)
         MainWindow.activateWindow()
 
 

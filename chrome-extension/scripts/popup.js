@@ -28,7 +28,7 @@ function getYoutubeData(url) {
   } else {
     xhttp.open(
       "GET",
-      `https://www.googleapis.com/youtube/v3/videos?id=${id}&key=AIzaSyCQ3RG5_ngnwRtP8cDfGDOdwhwHHE1Qcco&part=snippet`,
+      `https://www.googleapis.com/youtube/v3/videos?id=${id}&key=AIzaSyCQ3RG5_ngnwRtP8cDfGDOdwhwHHE1Qcco&part=snippet,contentDetails`,
       true
     );
   }

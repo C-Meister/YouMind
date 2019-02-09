@@ -354,7 +354,7 @@ class youtube():
                     
 
 
-    def get_channel_picture_url(self, id, forUsername=False):
+    def get_channel_Info(self, id, forUsername=False):
         url = "https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&key={}".format(
             self.API_KEY)
         url += "&forUsername=" + id if forUsername is True else "&id="+id
@@ -373,7 +373,7 @@ if __name__ == '__main__':
     
     #y.zsdf()
     #y.download_video({"url":"https://www.youtube.com/watch?v=1eEcL8XjogE","ext":"mp4","resl":"1280x720"})
-    print(y.get_channel_picture_url("mnetMPD",True))
+    print(y.get_channel_Info("mnetMPD",True))
     #y.subscribe("https://www.youtube.com/channel/UCu9BCtGIEr73LXZsKmoujKw","")
     # while True:
     #     pass

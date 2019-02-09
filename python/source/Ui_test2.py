@@ -332,7 +332,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "You_Mind | 유튜브 다운로더"))
         self.btn_link_download.setText(_translate("MainWindow", "다운로드"))
         self.combo_link_format.setItemText(0, _translate("MainWindow", "asdf"))
         self.combo_link_format_2.setItemText(0, _translate("MainWindow", "asdf"))

@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>You_Mind | 유튜브 다운로더</string>
   </property>
   <property name="styleSheet">
    <string notr="true"/>
@@ -551,28 +551,6 @@ QPushButton:checked{image:url(./image/sub2.png); border:0px;background-color : r
         </property>
         <property name="text">
          <string/>
-        </property>
-        <property name="checkable">
-         <bool>true</bool>
-        </property>
-        <attribute name="buttonGroup">
-         <string notr="true">buttonGroup</string>
-        </attribute>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_3">
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>50</height>
-         </size>
-        </property>
-        <property name="cursor">
-         <cursorShape>PointingHandCursor</cursorShape>
-        </property>
-        <property name="text">
-         <string>예비1</string>
         </property>
         <property name="checkable">
          <bool>true</bool>

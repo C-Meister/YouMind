@@ -29,6 +29,9 @@ downloaddata = [
 
 list1 = Kit(ui)
 list1.add_now_list(downloaddata)
+MainWindow.setWindowState(MainWindow.windowState() & ~QtCore.Qt.WindowMinimized | QtCore.Qt.WindowActive)
 
+# this will activate the window
+MainWindow.activateWindow()
 app.exec_()
 

@@ -143,7 +143,17 @@ QComboBox::down-arrow:on { /* shift the arrow when popup is open */
       </property>
       <item>
        <property name="text">
-        <string>asdf</string>
+        <string>480p</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>720p</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>1080p</string>
        </property>
       </item>
      </widget>
@@ -255,7 +265,17 @@ QComboBox::down-arrow:on { /* shift the arrow when popup is open */
       </property>
       <item>
        <property name="text">
-        <string>asdf</string>
+        <string>mp4</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>mp3</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>mkv</string>
        </property>
       </item>
      </widget>

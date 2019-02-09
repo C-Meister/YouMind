@@ -103,7 +103,7 @@ class Ui_MainWindow(object):
         font.setPointSize(11)
         self.lineEdit_2.setFont(font)
         self.lineEdit_2.setStyleSheet("background-color : white; border:0px;")
-        self.lineEdit_2.setText("")
+        self.lineEdit_2.setText("C:/")
         self.lineEdit_2.setObjectName("lineEdit_2")
         self.combo_link_format_2 = QtWidgets.QComboBox(self.page_link)
         self.combo_link_format_2.setGeometry(QtCore.QRect(200, 680, 171, 31))
